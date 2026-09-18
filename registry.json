@@ -16,6 +16,13 @@
             "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
             "versions": ["1.0.0"]
+        },
+        {
+            "slug": "messaging",
+            "name": "Messagerie",
+            "description": "Messagerie interne entre membres des magasins.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-messaging",
+            "versions": ["1.0.0"]
         }
     ]
 }
