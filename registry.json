@@ -1,0 +1,14 @@
+{
+    "schema_version": 1,
+    "name": "Registry officiel Kintai",
+    "updated_at": "2026-09-19T00:00:00Z",
+    "bundles": [
+        {
+            "slug": "feedback",
+            "name": "Retours utilisateurs",
+            "description": "Remontées des employés (bugs, suggestions) — modale de soumission, liste et suppression côté admin.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-feedback",
+            "versions": ["1.0.0"]
+        }
+    ]
+}
