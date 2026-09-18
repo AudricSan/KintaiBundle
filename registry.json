@@ -9,6 +9,13 @@
             "description": "Remontées des employés (bugs, suggestions) — modale de soumission, liste et suppression côté admin.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-feedback",
             "versions": ["1.0.0"]
+        },
+        {
+            "slug": "daily-report",
+            "name": "Rapports journaliers",
+            "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
+            "versions": ["1.0.0"]
         }
     ]
 }
