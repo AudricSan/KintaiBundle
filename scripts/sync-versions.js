@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-// Sync registry.json `versions` arrays against the tagged GitHub Releases of
-// each bundle's repository_url. Source of truth for what's installable is
-// the bundle repo's own releases, never this file — this script just mirrors it.
+// Resynchronise les tableaux `versions` de registry.json avec les GitHub Releases
+// taguées du repository_url de chaque bundle. La source de vérité de ce qui est
+// installable reste les releases du dépôt du bundle, jamais ce fichier — ce
+// script ne fait que la refléter.
 
 const fs = require("fs");
 const path = require("path");
@@ -46,7 +47,7 @@ async function fetchReleaseVersions({ owner, repo }) {
       { headers }
     );
     if (res.status === 404) {
-      // Repo has no releases yet, or doesn't exist (e.g. proposed but not published).
+      // Le dépôt n'a pas encore de releases, ou n'existe pas (ex : bundle proposé mais pas encore publié).
       break;
     }
     if (!res.ok) {
@@ -111,7 +112,7 @@ async function main() {
     console.log("No version changes detected.");
   }
 
-  // Exposes to the workflow whether a commit/PR is needed.
+  // Indique au workflow si une PR est nécessaire.
   if (process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(process.env.GITHUB_OUTPUT, `changed=${changed}\n`);
   }
