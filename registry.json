@@ -23,6 +23,13 @@
             "description": "Annuaire des collègues scopé aux magasins partagés, avec profil étendu consultable.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-team-directory",
             "versions": ["1.0.0"]
+        },
+        {
+            "slug": "hiring-report",
+            "name": "Rapport d'embauche",
+            "description": "Consultation et édition des rapports d'embauche par magasin. Générés automatiquement à la création d'un employé, même si ce bundle est désactivé.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-hiring-report",
+            "versions": ["1.0.0"]
         }
     ]
 }
