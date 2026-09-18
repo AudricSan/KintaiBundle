@@ -32,7 +32,7 @@ It's added by default on every Kintai instance and can't be removed from `/admin
 
 ## Proposing a bundle
 
-Open a pull request adding an entry to `registry.json`. To be accepted, a bundle needs:
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full workflow. In short: open a pull request adding an entry to `registry.json`. To be accepted, a bundle needs:
 - A public repository with a `bundle.json` at its root (see [docs/creating-a-bundle.md](https://github.com/AudricSan/Kintai/blob/main/docs/creating-a-bundle.md) in the main Kintai repository for the full format and contract).
 - At least one tagged GitHub Release matching a version in `bundle.json`.
 
@@ -57,7 +57,7 @@ Voir l'exemple ci-dessus (section anglaise) — le format est identique quelle q
 
 ### Proposer un bundle
 
-Ouvrez une pull request ajoutant une entrée à `registry.json`. Pour être accepté, un bundle doit avoir :
+Voir [CONTRIBUTING.md](CONTRIBUTING.md) (en anglais) pour le workflow complet. En résumé : ouvrez une pull request ajoutant une entrée à `registry.json`. Pour être accepté, un bundle doit avoir :
 - Un dépôt public avec un `bundle.json` à sa racine (voir [docs/creating-a-bundle.md](https://github.com/AudricSan/Kintai/blob/main/docs/creating-a-bundle.md) dans le dépôt principal Kintai pour le format et le contrat complets).
 - Au moins une release GitHub taguée correspondant à une version de `bundle.json`.
 
