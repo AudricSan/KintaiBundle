@@ -16,6 +16,13 @@
             "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
             "versions": ["1.0.0"]
+        },
+        {
+            "slug": "resignation-report",
+            "name": "Rapport de démission",
+            "description": "Rapports de démission par employé, avec réactivation du compte.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-resignation-report",
+            "versions": ["1.0.0"]
         }
     ]
 }
