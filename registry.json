@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "Registry officiel Kintai",
-  "updated_at": "2026-09-19T08:01:17Z",
+  "updated_at": "2026-09-19T08:02:03Z",
   "bundles": [
     {
       "slug": "feedback",
@@ -80,6 +80,15 @@
       "name": "Photos de magasin",
       "description": "Envoi et consultation de photos par magasin (état des lieux, rapport visuel), avec rotation et nettoyage automatique.",
       "repository_url": "https://github.com/AudricSan/kintai-bundle-store-photos",
+      "versions": [
+        "1.0.0"
+      ]
+    },
+    {
+      "slug": "timeclock",
+      "name": "Pointage",
+      "description": "Pointer/dépointer, historique employé, gestion admin des entrées de pointage.",
+      "repository_url": "https://github.com/AudricSan/kintai-bundle-timeclock",
       "versions": [
         "1.0.0"
       ]
