@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "Registry officiel Kintai",
-  "updated_at": "2026-09-19T08:00:43Z",
+  "updated_at": "2026-09-19T08:01:17Z",
   "bundles": [
     {
       "slug": "feedback",
@@ -24,7 +24,7 @@
     {
       "slug": "team-directory",
       "name": "Annuaire des collègues",
-      "description": "Annuaire des collègues scopé aux magasins partagés, avec profil étendu consultable.",
+      "description": "Annuaire des collègues scopé aux magasins partagés, avec profil étendu consultable (bio, compétences, langues, loisirs).",
       "repository_url": "https://github.com/AudricSan/kintai-bundle-team-directory",
       "versions": [
         "1.0.0"
