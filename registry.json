@@ -16,6 +16,13 @@
             "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
             "versions": ["1.0.0"]
+        },
+        {
+            "slug": "timeclock",
+            "name": "Pointage",
+            "description": "Pointer/dépointer, historique employé, gestion admin des entrées de pointage.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-timeclock",
+            "versions": ["1.0.0"]
         }
     ]
 }
