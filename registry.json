@@ -16,6 +16,13 @@
             "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
             "versions": ["1.0.0"]
+        },
+        {
+            "slug": "shift-swap",
+            "name": "Échanges de shifts",
+            "description": "Demandes d'échange de shifts entre employés, avec validation par un manager.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-swap",
+            "versions": ["1.0.0"]
         }
     ]
 }
