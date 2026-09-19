@@ -1,28 +1,43 @@
 {
-    "schema_version": 1,
-    "name": "Registry officiel Kintai",
-    "updated_at": "2026-09-19T00:00:00Z",
-    "bundles": [
-        {
-            "slug": "feedback",
-            "name": "Retours utilisateurs",
-            "description": "Remontées des employés (bugs, suggestions) — modale de soumission, liste et suppression côté admin.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-feedback",
-            "versions": ["1.0.0"]
-        },
-        {
-            "slug": "daily-report",
-            "name": "Rapports journaliers",
-            "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
-            "versions": ["1.0.0"]
-        },
-        {
-            "slug": "team-directory",
-            "name": "Annuaire des collègues",
-            "description": "Annuaire des collègues scopé aux magasins partagés, avec profil étendu consultable.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-team-directory",
-            "versions": ["1.0.0"]
-        }
-    ]
+  "schema_version": 1,
+  "name": "Registry officiel Kintai",
+  "updated_at": "2026-09-19T07:57:35Z",
+  "bundles": [
+    {
+      "slug": "feedback",
+      "name": "Retours utilisateurs",
+      "description": "Remontées des employés (bugs, suggestions) — modale de soumission, liste et suppression côté admin.",
+      "repository_url": "https://github.com/AudricSan/kintai-bundle-feedback",
+      "versions": [
+        "1.0.0"
+      ]
+    },
+    {
+      "slug": "daily-report",
+      "name": "Rapports journaliers",
+      "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
+      "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
+      "versions": [
+        "1.0.0"
+      ]
+    },
+    {
+      "slug": "team-directory",
+      "name": "Annuaire des collègues",
+      "description": "Annuaire des collègues scopé aux magasins partagés, avec profil étendu consultable.",
+      "repository_url": "https://github.com/AudricSan/kintai-bundle-team-directory",
+      "versions": [
+        "1.0.0"
+      ]
+    },
+    {
+      "slug": "hiring-report",
+      "name": "Rapport d'embauche",
+      "description": "Consultation et édition des rapports d'embauche par magasin. Générés automatiquement à la création d'un employé, même si ce bundle est désactivé.",
+      "repository_url": "https://github.com/AudricSan/kintai-bundle-hiring-report",
+      "versions": [
+        "1.0.0"
+      ]
+    }
+  ]
 }
