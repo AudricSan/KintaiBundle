@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "Registry officiel Kintai",
-  "updated_at": "2026-09-19T08:00:03Z",
+  "updated_at": "2026-09-19T08:00:43Z",
   "bundles": [
     {
       "slug": "feedback",
@@ -71,6 +71,15 @@
       "name": "Échanges de shifts",
       "description": "Demandes d'échange de shifts entre employés, avec validation par un manager.",
       "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-swap",
+      "versions": [
+        "1.0.0"
+      ]
+    },
+    {
+      "slug": "store-photos",
+      "name": "Photos de magasin",
+      "description": "Envoi et consultation de photos par magasin (état des lieux, rapport visuel), avec rotation et nettoyage automatique.",
+      "repository_url": "https://github.com/AudricSan/kintai-bundle-store-photos",
       "versions": [
         "1.0.0"
       ]
