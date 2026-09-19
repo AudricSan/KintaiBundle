@@ -16,6 +16,13 @@
             "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
             "versions": ["1.0.0"]
+        },
+        {
+            "slug": "shift-claim",
+            "name": "Bourse aux shifts",
+            "description": "Publication de shifts ouverts, candidatures des employés, approbation par un manager.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-claim",
+            "versions": ["1.0.0"]
         }
     ]
 }
