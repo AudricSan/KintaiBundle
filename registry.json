@@ -16,6 +16,13 @@
             "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
             "versions": ["1.0.0"]
+        },
+        {
+            "slug": "store-photos",
+            "name": "Photos de magasin",
+            "description": "Envoi et consultation de photos par magasin, avec rotation et nettoyage automatique.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-store-photos",
+            "versions": ["1.0.0"]
         }
     ]
 }
