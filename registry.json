@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "Registry officiel Kintai",
-  "updated_at": "2026-09-19T07:58:19Z",
+  "updated_at": "2026-09-19T07:58:54Z",
   "bundles": [
     {
       "slug": "feedback",
@@ -44,6 +44,15 @@
       "name": "Messagerie",
       "description": "Messagerie interne entre membres des magasins.",
       "repository_url": "https://github.com/AudricSan/kintai-bundle-messaging",
+      "versions": [
+        "1.0.0"
+      ]
+    },
+    {
+      "slug": "resignation-report",
+      "name": "Rapport de démission",
+      "description": "Rapports de démission par employé, avec réactivation du compte.",
+      "repository_url": "https://github.com/AudricSan/kintai-bundle-resignation-report",
       "versions": [
         "1.0.0"
       ]
