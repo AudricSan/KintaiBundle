@@ -16,6 +16,13 @@
             "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
             "versions": ["1.0.0"]
+        },
+        {
+            "slug": "team-directory",
+            "name": "Annuaire des collègues",
+            "description": "Annuaire des collègues scopé aux magasins partagés, avec profil étendu consultable.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-team-directory",
+            "versions": ["1.0.0"]
         }
     ]
 }
