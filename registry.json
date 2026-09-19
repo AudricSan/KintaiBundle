@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "Registry officiel Kintai",
-  "updated_at": "2026-09-19T07:57:35Z",
+  "updated_at": "2026-09-19T07:58:19Z",
   "bundles": [
     {
       "slug": "feedback",
@@ -35,6 +35,15 @@
       "name": "Rapport d'embauche",
       "description": "Consultation et édition des rapports d'embauche par magasin. Générés automatiquement à la création d'un employé, même si ce bundle est désactivé.",
       "repository_url": "https://github.com/AudricSan/kintai-bundle-hiring-report",
+      "versions": [
+        "1.0.0"
+      ]
+    },
+    {
+      "slug": "messaging",
+      "name": "Messagerie",
+      "description": "Messagerie interne entre membres des magasins.",
+      "repository_url": "https://github.com/AudricSan/kintai-bundle-messaging",
       "versions": [
         "1.0.0"
       ]
