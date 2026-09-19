@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "Registry officiel Kintai",
-  "updated_at": "2026-09-19T07:59:29Z",
+  "updated_at": "2026-09-19T08:00:03Z",
   "bundles": [
     {
       "slug": "feedback",
@@ -62,6 +62,15 @@
       "name": "Bourse aux shifts",
       "description": "Publication de shifts ouverts, candidatures des employés, approbation par un manager.",
       "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-claim",
+      "versions": [
+        "1.0.0"
+      ]
+    },
+    {
+      "slug": "shift-swap",
+      "name": "Échanges de shifts",
+      "description": "Demandes d'échange de shifts entre employés, avec validation par un manager.",
+      "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-swap",
       "versions": [
         "1.0.0"
       ]
