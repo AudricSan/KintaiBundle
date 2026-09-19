@@ -16,6 +16,13 @@
             "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
             "versions": ["1.0.0"]
+        },
+        {
+            "slug": "timeoff",
+            "name": "Congés",
+            "description": "Créer, approuver et consulter des demandes de congés.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-timeoff",
+            "versions": ["1.0.0"]
         }
     ]
 }
