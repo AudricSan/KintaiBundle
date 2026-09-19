@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "Registry officiel Kintai",
-  "updated_at": "2026-09-19T08:02:03Z",
+  "updated_at": "2026-09-19T08:02:39Z",
   "bundles": [
     {
       "slug": "feedback",
@@ -89,6 +89,15 @@
       "name": "Pointage",
       "description": "Pointer/dépointer, historique employé, gestion admin des entrées de pointage.",
       "repository_url": "https://github.com/AudricSan/kintai-bundle-timeclock",
+      "versions": [
+        "1.0.0"
+      ]
+    },
+    {
+      "slug": "timeoff",
+      "name": "Congés",
+      "description": "Créer, approuver et consulter des demandes de congés.",
+      "repository_url": "https://github.com/AudricSan/kintai-bundle-timeoff",
       "versions": [
         "1.0.0"
       ]
