@@ -1,14 +1,23 @@
 #!/usr/bin/env node
-// Resynchronise les tableaux `versions` de registry.json avec les GitHub Releases
-// taguées du repository_url de chaque bundle. La source de vérité de ce qui est
-// installable reste les releases du dépôt du bundle, jamais ce fichier — ce
-// script ne fait que la refléter.
+// Resynchronise `versions` de registry.json (schema 2 : un objet {release, beta,
+// alpha}) avec les GitHub Releases taguées du repository_url de chaque bundle.
+// La source de vérité de ce qui est installable reste les releases du dépôt du
+// bundle, jamais ce fichier — ce script ne fait que la refléter.
+//
+// Canal déterminé via target_commitish (la branche source de la release) et le
+// flag prerelease, PAS en inspectant le tag — même règle que Kintai lui-même
+// (GithubUpdateService/AppSettingsService::updateChannel(), voir docs/releasing.md
+// dans le dépôt principal Kintai) :
+//   - release : uniquement les releases publiées depuis `main`, non prerelease.
+//   - beta    : les releases publiées depuis `main` ou `beta` (exclut `alpha`).
+//   - alpha   : toutes les releases, canal le plus permissif.
 
 const fs = require("fs");
 const path = require("path");
 
 const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const TAG_RE = /^v(\d+)\.(\d+)\.(\d+)$/;
+const CHANNELS = ["release", "beta", "alpha"];
 
 function parseRepo(repositoryUrl) {
   const match = repositoryUrl.match(
@@ -30,7 +39,20 @@ function compareSemverDesc(a, b) {
   return 0;
 }
 
-async function fetchReleaseVersions({ owner, repo }) {
+function matchesChannel(release, channel) {
+  const branch = release.target_commitish || "";
+  const isPrerelease = Boolean(release.prerelease);
+  switch (channel) {
+    case "alpha":
+      return true;
+    case "beta":
+      return branch !== "alpha";
+    default:
+      return branch === "main" && !isPrerelease;
+  }
+}
+
+async function fetchReleases({ owner, repo }) {
   const headers = {
     Accept: "application/vnd.github+json",
     "User-Agent": "KintaiBundle-sync-versions",
@@ -39,7 +61,7 @@ async function fetchReleaseVersions({ owner, repo }) {
     headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
   }
 
-  const versions = [];
+  const releases = [];
   let page = 1;
   for (;;) {
     const res = await fetch(
@@ -55,23 +77,34 @@ async function fetchReleaseVersions({ owner, repo }) {
         `GitHub API error for ${owner}/${repo}: ${res.status} ${res.statusText}`
       );
     }
-    const releases = await res.json();
-    if (releases.length === 0) break;
+    const page_releases = await res.json();
+    if (page_releases.length === 0) break;
 
-    for (const release of releases) {
+    for (const release of page_releases) {
       if (release.draft) continue;
-      if (release.prerelease) continue;
       if (TAG_RE.test(release.tag_name)) {
-        versions.push(release.tag_name.slice(1));
+        releases.push(release);
       }
     }
 
-    if (releases.length < 100) break;
+    if (page_releases.length < 100) break;
     page++;
   }
 
-  versions.sort((a, b) => compareSemverDesc(`v${a}`, `v${b}`));
-  return versions;
+  return releases;
+}
+
+/** @returns {{release: string[], beta: string[], alpha: string[]}} */
+function versionsByChannel(releases) {
+  const result = {};
+  for (const channel of CHANNELS) {
+    const tags = releases
+      .filter((r) => matchesChannel(r, channel))
+      .map((r) => r.tag_name);
+    tags.sort(compareSemverDesc);
+    result[channel] = tags.map((t) => t.slice(1));
+  }
+  return result;
 }
 
 async function main() {
@@ -80,20 +113,22 @@ async function main() {
 
   for (const bundle of registry.bundles) {
     const repoInfo = parseRepo(bundle.repository_url);
-    let versions;
+    let releases;
     try {
-      versions = await fetchReleaseVersions(repoInfo);
+      releases = await fetchReleases(repoInfo);
     } catch (err) {
       console.error(`Skipping ${bundle.slug}: ${err.message}`);
       continue;
     }
 
-    if (versions.length === 0) {
+    if (releases.length === 0) {
       console.warn(
         `Warning: ${bundle.slug} (${bundle.repository_url}) has no tagged vX.Y.Z releases; keeping existing versions.`
       );
       continue;
     }
+
+    const versions = versionsByChannel(releases);
 
     const before = JSON.stringify(bundle.versions);
     const after = JSON.stringify(versions);
@@ -105,6 +140,7 @@ async function main() {
   }
 
   if (changed) {
+    registry.schema_version = 2;
     registry.updated_at = new Date().toISOString().replace(/\.\d+Z$/, "Z");
     fs.writeFileSync(REGISTRY_PATH, JSON.stringify(registry, null, 4) + "\n");
     console.log("registry.json updated.");

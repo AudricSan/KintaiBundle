@@ -1,106 +1,235 @@
 {
-  "schema_version": 1,
-  "name": "Registry officiel Kintai",
-  "updated_at": "2026-09-19T08:02:39Z",
-  "bundles": [
-    {
-      "slug": "feedback",
-      "name": "Retours utilisateurs",
-      "description": "Remontées des employés (bugs, suggestions) — modale de soumission, liste et suppression côté admin.",
-      "repository_url": "https://github.com/AudricSan/kintai-bundle-feedback",
-      "versions": [
-        "1.0.0"
-      ]
-    },
-    {
-      "slug": "daily-report",
-      "name": "Rapports journaliers",
-      "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
-      "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
-      "versions": [
-        "1.0.0"
-      ]
-    },
-    {
-      "slug": "team-directory",
-      "name": "Annuaire des collègues",
-      "description": "Annuaire des collègues scopé aux magasins partagés, avec profil étendu consultable (bio, compétences, langues, loisirs).",
-      "repository_url": "https://github.com/AudricSan/kintai-bundle-team-directory",
-      "versions": [
-        "1.0.0"
-      ]
-    },
-    {
-      "slug": "hiring-report",
-      "name": "Rapport d'embauche",
-      "description": "Consultation et édition des rapports d'embauche par magasin. Générés automatiquement à la création d'un employé, même si ce bundle est désactivé.",
-      "repository_url": "https://github.com/AudricSan/kintai-bundle-hiring-report",
-      "versions": [
-        "1.0.0"
-      ]
-    },
-    {
-      "slug": "messaging",
-      "name": "Messagerie",
-      "description": "Messagerie interne entre membres des magasins.",
-      "repository_url": "https://github.com/AudricSan/kintai-bundle-messaging",
-      "versions": [
-        "1.0.0"
-      ]
-    },
-    {
-      "slug": "resignation-report",
-      "name": "Rapport de démission",
-      "description": "Rapports de démission par employé, avec réactivation du compte.",
-      "repository_url": "https://github.com/AudricSan/kintai-bundle-resignation-report",
-      "versions": [
-        "1.0.0"
-      ]
-    },
-    {
-      "slug": "shift-claim",
-      "name": "Bourse aux shifts",
-      "description": "Publication de shifts ouverts, candidatures des employés, approbation par un manager.",
-      "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-claim",
-      "versions": [
-        "1.0.0"
-      ]
-    },
-    {
-      "slug": "shift-swap",
-      "name": "Échanges de shifts",
-      "description": "Demandes d'échange de shifts entre employés, avec validation par un manager.",
-      "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-swap",
-      "versions": [
-        "1.0.0"
-      ]
-    },
-    {
-      "slug": "store-photos",
-      "name": "Photos de magasin",
-      "description": "Envoi et consultation de photos par magasin (état des lieux, rapport visuel), avec rotation et nettoyage automatique.",
-      "repository_url": "https://github.com/AudricSan/kintai-bundle-store-photos",
-      "versions": [
-        "1.0.0"
-      ]
-    },
-    {
-      "slug": "timeclock",
-      "name": "Pointage",
-      "description": "Pointer/dépointer, historique employé, gestion admin des entrées de pointage.",
-      "repository_url": "https://github.com/AudricSan/kintai-bundle-timeclock",
-      "versions": [
-        "1.0.0"
-      ]
-    },
-    {
-      "slug": "timeoff",
-      "name": "Congés",
-      "description": "Créer, approuver et consulter des demandes de congés.",
-      "repository_url": "https://github.com/AudricSan/kintai-bundle-timeoff",
-      "versions": [
-        "1.0.0"
-      ]
-    }
-  ]
+    "schema_version": 2,
+    "name": "Registry officiel Kintai",
+    "updated_at": "2026-09-23T06:35:13Z",
+    "bundles": [
+        {
+            "slug": "feedback",
+            "name": "Retours utilisateurs",
+            "description": "Remontées des employés (bugs, suggestions) — modale de soumission, liste et suppression côté admin.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-feedback",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.1.1",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        },
+        {
+            "slug": "daily-report",
+            "name": "Rapports journaliers",
+            "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.1.1",
+                    "1.0.2",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        },
+        {
+            "slug": "team-directory",
+            "name": "Annuaire des collègues",
+            "description": "Annuaire des collègues scopé aux magasins partagés, avec profil étendu consultable (bio, compétences, langues, loisirs).",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-team-directory",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.1",
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.1.1",
+                    "1.0.2",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        },
+        {
+            "slug": "hiring-report",
+            "name": "Rapport d'embauche",
+            "description": "Consultation et édition des rapports d'embauche par magasin. Générés automatiquement à la création d'un employé, même si ce bundle est désactivé.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-hiring-report",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.1",
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.1.1",
+                    "1.0.2",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        },
+        {
+            "slug": "messaging",
+            "name": "Messagerie",
+            "description": "Messagerie interne entre membres des magasins.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-messaging",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.2",
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.1.1",
+                    "1.0.2",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        },
+        {
+            "slug": "resignation-report",
+            "name": "Rapport de démission",
+            "description": "Rapports de démission par employé, avec réactivation du compte.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-resignation-report",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.1",
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.1.1",
+                    "1.0.2",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        },
+        {
+            "slug": "shift-claim",
+            "name": "Bourse aux shifts",
+            "description": "Publication de shifts ouverts, candidatures des employés, approbation par un manager.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-claim",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.2",
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.1.1",
+                    "1.0.2",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        },
+        {
+            "slug": "shift-swap",
+            "name": "Échanges de shifts",
+            "description": "Demandes d'échange de shifts entre employés, avec validation par un manager.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-swap",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.2",
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.1.1",
+                    "1.0.2",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        },
+        {
+            "slug": "store-photos",
+            "name": "Photos de magasin",
+            "description": "Envoi et consultation de photos par magasin (état des lieux, rapport visuel), avec rotation et nettoyage automatique.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-store-photos",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.2",
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.1.1",
+                    "1.0.2",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        },
+        {
+            "slug": "timeclock",
+            "name": "Pointage",
+            "description": "Pointer/dépointer, historique employé, gestion admin des entrées de pointage.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-timeclock",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.1",
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.1.1",
+                    "1.0.2",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        },
+        {
+            "slug": "timeoff",
+            "name": "Congés",
+            "description": "Créer, approuver et consulter des demandes de congés.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-timeoff",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.1",
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.1.1",
+                    "1.0.2",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        }
+    ]
 }

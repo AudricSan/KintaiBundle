@@ -9,6 +9,7 @@ const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const SEMVER_RE = /^\d+\.\d+\.\d+$/;
 const REPO_URL_RE = /^https:\/\/github\.com\/[^/\s]+\/[^/\s]+$/;
+const CHANNELS = ["release", "beta", "alpha"];
 
 const errors = [];
 
@@ -41,8 +42,8 @@ try {
   process.exit(1);
 }
 
-if (registry.schema_version !== 1) {
-  fail(`schema_version must be 1, got ${JSON.stringify(registry.schema_version)}`);
+if (registry.schema_version !== 2) {
+  fail(`schema_version must be 2, got ${JSON.stringify(registry.schema_version)}`);
 }
 
 if (typeof registry.name !== "string" || registry.name.trim() === "") {
@@ -81,18 +82,46 @@ if (!Array.isArray(registry.bundles)) {
       fail(`${where}: repository_url must look like https://github.com/{owner}/{repo}, got ${JSON.stringify(bundle.repository_url)}`);
     }
 
-    if (!Array.isArray(bundle.versions) || bundle.versions.length === 0) {
-      fail(`${where}: versions must be a non-empty array`);
+    if (typeof bundle.versions !== "object" || bundle.versions === null || Array.isArray(bundle.versions)) {
+      fail(`${where}: versions must be an object with release/beta/alpha keys`);
     } else {
-      bundle.versions.forEach((version, vIndex) => {
-        if (typeof version !== "string" || !SEMVER_RE.test(version)) {
-          fail(`${where}: versions[${vIndex}] must be a plain X.Y.Z string (no "v" prefix), got ${JSON.stringify(version)}`);
-        }
-      });
+      const extraKeys = Object.keys(bundle.versions).filter((k) => !CHANNELS.includes(k));
+      if (extraKeys.length > 0) {
+        fail(`${where}: versions has unexpected keys: ${extraKeys.join(", ")}`);
+      }
 
-      const sorted = [...bundle.versions].sort(compareSemverDesc);
-      if (JSON.stringify(sorted) !== JSON.stringify(bundle.versions)) {
-        fail(`${where}: versions must be sorted newest first`);
+      let anyNonEmpty = false;
+      for (const channel of CHANNELS) {
+        const list = bundle.versions[channel];
+        if (!Array.isArray(list)) {
+          fail(`${where}: versions.${channel} must be an array`);
+          continue;
+        }
+        if (list.length > 0) anyNonEmpty = true;
+
+        list.forEach((version, vIndex) => {
+          if (typeof version !== "string" || !SEMVER_RE.test(version)) {
+            fail(`${where}: versions.${channel}[${vIndex}] must be a plain X.Y.Z string (no "v" prefix), got ${JSON.stringify(version)}`);
+          }
+        });
+
+        const sorted = [...list].sort(compareSemverDesc);
+        if (JSON.stringify(sorted) !== JSON.stringify(list)) {
+          fail(`${where}: versions.${channel} must be sorted newest first`);
+        }
+
+        // alpha est le canal le plus permissif : tout ce qui est offert sur
+        // release/beta doit s'y retrouver aussi (release ⊆ beta ⊆ alpha).
+        if (channel !== "alpha" && Array.isArray(bundle.versions.alpha)) {
+          const missing = list.filter((v) => !bundle.versions.alpha.includes(v));
+          if (missing.length > 0) {
+            fail(`${where}: versions.${channel} has versions missing from versions.alpha: ${missing.join(", ")}`);
+          }
+        }
+      }
+
+      if (!anyNonEmpty) {
+        fail(`${where}: versions must have at least one non-empty channel`);
       }
     }
   });
