@@ -10,7 +10,7 @@ It's added by default on every Kintai instance and can't be removed from `/admin
 
 ```json
 {
-    "schema_version": 1,
+    "schema_version": 2,
     "name": "Registry officiel Kintai",
     "updated_at": "2026-09-19T00:00:00Z",
     "bundles": [
@@ -19,15 +19,20 @@ It's added by default on every Kintai instance and can't be removed from `/admin
             "name": "Retours utilisateurs",
             "description": "...",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-feedback",
-            "versions": ["1.0.0"]
+            "versions": {
+                "release": ["1.0.0"],
+                "beta": ["1.1.0", "1.0.0"],
+                "alpha": ["1.1.0", "1.0.0"]
+            }
         }
     ]
 }
 ```
 
-- `schema_version` must be `1` — a Kintai instance that doesn't understand a newer schema rejects the listing cleanly instead of misreading it.
+- `schema_version` — Kintai currently understands `1` (legacy, `versions` as a flat array) and `2` (current); a Kintai instance that doesn't understand a newer schema rejects the listing cleanly instead of misreading it.
 - `repository_url` must be a GitHub repository (`https://github.com/{owner}/{repo}`) with tagged releases (`vX.Y.Z`) — Kintai downloads a specific version's zipball via the GitHub Releases API, never `git clone`/`pull`.
-- `versions` lists every installable version, newest first; the bundle's own `bundle.json` (inside its repository, read at install time) is the actual source of truth for compatibility (`kintai_core.min`/`max`) and everything else.
+- `versions` is keyed by update channel — `release` (only non-prerelease releases published from the `main` branch), `beta` (`main` or `beta`, excludes `alpha`), `alpha` (everything) — each a list of installable versions, newest first. This mirrors the update channel an Owner picks once for all their installed bundles on `/admin/bundles/market`; `sync-versions.js` (below) computes these three lists automatically from each bundle's actual GitHub Releases, never hand-edited.
+- The bundle's own `bundle.json` (inside its repository, read at install time) is the actual source of truth for compatibility (`kintai_core.min`/`max`) and everything else — `versions` here is only a hint for the catalog UI.
 - Each bundle's own repository is authoritative for its code and manifest — this file only points to it.
 
 ## Proposing a bundle
@@ -50,9 +55,10 @@ Il est ajouté par défaut sur toute instance Kintai et ne peut pas être suppri
 
 Voir l'exemple ci-dessus (section anglaise) — le format est identique quelle que soit la langue de ce README.
 
-- `schema_version` doit valoir `1` — une instance Kintai qui ne comprend pas un schéma plus récent rejette proprement le listing au lieu de le mal interpréter.
+- `schema_version` — Kintai comprend actuellement `1` (historique, `versions` en liste plate) et `2` (actuel) ; une instance Kintai qui ne comprend pas un schéma plus récent rejette proprement le listing au lieu de le mal interpréter.
 - `repository_url` doit être un dépôt GitHub (`https://github.com/{owner}/{repo}`) avec des releases taguées (`vX.Y.Z`) — Kintai télécharge le zipball d'une version précise via l'API GitHub Releases, jamais `git clone`/`pull`.
-- `versions` liste chaque version installable, la plus récente en premier ; le `bundle.json` propre au bundle (dans son dépôt, lu au moment de l'installation) reste la source de vérité pour la compatibilité (`kintai_core.min`/`max`) et tout le reste.
+- `versions` est indexé par canal de mise à jour — `release` (uniquement les releases non-prerelease publiées depuis la branche `main`), `beta` (`main` ou `beta`, exclut `alpha`), `alpha` (tout) — chacun une liste de versions installables, la plus récente en premier. Ça reflète le canal de mise à jour choisi une seule fois pour tous les bundles installés d'un Owner sur `/admin/bundles/market` ; `sync-versions.js` (ci-dessous) calcule ces trois listes automatiquement à partir des vraies Releases GitHub de chaque bundle, jamais édité à la main.
+- Le `bundle.json` propre au bundle (dans son dépôt, lu au moment de l'installation) reste la source de vérité réelle pour la compatibilité (`kintai_core.min`/`max`) et tout le reste — `versions` ici n'est qu'une indication pour l'UI du catalogue.
 - Le dépôt propre à chaque bundle fait autorité sur son code et son manifeste — ce fichier ne fait que pointer vers lui.
 
 ### Proposer un bundle
