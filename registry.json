@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "name": "Registry officiel Kintai",
-    "updated_at": "2026-09-23T06:35:13Z",
+    "updated_at": "2026-09-25T23:36:22Z",
     "bundles": [
         {
             "slug": "feedback",
@@ -225,6 +225,27 @@
                 ],
                 "alpha": [
                     "1.1.1",
+                    "1.0.2",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        },
+        {
+            "slug": "notebook",
+            "name": "Carnet de notes",
+            "description": "Carnet de notes d'équipe — messages visibles sur les dashboards admin et employé, épinglage, expiration automatique.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-notebook",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.3",
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.0.3",
                     "1.0.2",
                     "1.0.1",
                     "1.0.0"
