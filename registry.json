@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "name": "Registry officiel Kintai",
-    "updated_at": "2026-09-25T23:36:22Z",
+    "updated_at": "2026-09-29T10:17:41Z",
     "bundles": [
         {
             "slug": "feedback",
@@ -246,6 +246,26 @@
                 ],
                 "alpha": [
                     "1.0.3",
+                    "1.0.2",
+                    "1.0.1",
+                    "1.0.0"
+                ]
+            }
+        },
+        {
+            "slug": "salary-report",
+            "name": "Rapport de salaire",
+            "description": "Rapports de salaire mensuels par magasin ou par employé, pré-remplis depuis les rapports journaliers et les shifts.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-salary-report",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.1",
+                    "1.0.0"
+                ],
+                "alpha": [
                     "1.0.2",
                     "1.0.1",
                     "1.0.0"
