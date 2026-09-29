@@ -19,3 +19,6 @@ jobs:
 
       - name: Validate registry.json
         run: node scripts/validate-registry.js
+
+      - name: Unit tests (commit pinning)
+        run: node --test scripts/*.test.js

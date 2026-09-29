@@ -39,5 +39,11 @@ jobs:
             bundle ont été resynchronisées avec les releases GitHub taguées
             (`vX.Y.Z`) de leur dépôt respectif.
 
+            **Point de contrôle.** Chaque nouvelle version est épinglée à son commit
+            (`commits`) : c'est ce commit exact que Kintai acceptera d'installer. Avant
+            de fusionner, vérifier que les commits ajoutés sont bien ceux attendus pour
+            ces versions. Une empreinte déjà épinglée n'est jamais modifiée par cette
+            automatisation.
+
             Généré par le workflow `sync-versions`.
           labels: automated

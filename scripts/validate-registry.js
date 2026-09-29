@@ -9,6 +9,7 @@ const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const SEMVER_RE = /^\d+\.\d+\.\d+$/;
 const REPO_URL_RE = /^https:\/\/github\.com\/[^/\s]+\/[^/\s]+$/;
+const COMMIT_RE = /^[0-9a-f]{40}$/;
 const CHANNELS = ["release", "beta", "alpha"];
 
 const errors = [];
@@ -122,6 +123,35 @@ if (!Array.isArray(registry.bundles)) {
 
       if (!anyNonEmpty) {
         fail(`${where}: versions must have at least one non-empty channel`);
+      }
+    }
+
+    // Épinglage : chaque version listée porte le commit de son tag (Kintai compare le ZIP téléchargé
+    // à ce commit avant d'installer). Aucune version sans empreinte, aucune empreinte orpheline.
+    if (typeof bundle.commits !== "object" || bundle.commits === null || Array.isArray(bundle.commits)) {
+      fail(`${where}: commits must be an object mapping each version to its tag's commit sha`);
+    } else {
+      const listed = new Set();
+      for (const channel of CHANNELS) {
+        const list = bundle.versions && bundle.versions[channel];
+        if (Array.isArray(list)) list.forEach((v) => listed.add(v));
+      }
+
+      for (const [version, sha] of Object.entries(bundle.commits)) {
+        if (!SEMVER_RE.test(version)) {
+          fail(`${where}: commits key ${JSON.stringify(version)} must be a plain X.Y.Z string`);
+        }
+        if (typeof sha !== "string" || !COMMIT_RE.test(sha)) {
+          fail(`${where}: commits[${JSON.stringify(version)}] must be a 40-character lowercase hex commit sha, got ${JSON.stringify(sha)}`);
+        }
+        if (!listed.has(version)) {
+          fail(`${where}: commits has an entry for ${version} which is not listed in versions`);
+        }
+      }
+      for (const version of listed) {
+        if (!(version in bundle.commits)) {
+          fail(`${where}: version ${version} has no pinned commit in commits`);
+        }
       }
     }
   });

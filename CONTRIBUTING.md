@@ -35,7 +35,8 @@ Open an issue describing the problem (a bad registry entry, a broken automation,
 
 ## Automation
 
-- `scripts/sync-versions.js`, run hourly by `.github/workflows/sync-versions.yml`, polls each bundle's `repository_url` for tagged GitHub Releases and opens a PR against `main` when a bundle's `versions` are out of date. It never pushes directly.
+- `scripts/sync-versions.js`, run hourly by `.github/workflows/sync-versions.yml`, polls each bundle's `repository_url` for tagged GitHub Releases and opens a PR against `main` when a bundle's `versions` are out of date. It never pushes directly. It also pins, in `commits`, the commit each version's tag points to (see `README.md`); a pin is written once and never changed by the script.
+- If a pinned tag has moved, the sync job **fails** and opens no PR — that is deliberate. Look at the bundle's repository first: a moved tag can mean its repository or a maintainer account was compromised. Only if the re-tag is legitimate (for example a release deleted and recreated on purpose), edit the affected entry of `commits` by hand in a reviewed PR.
 - `scripts/validate-registry.js`, run by `.github/workflows/tests.yml` (job `test`), is the required status check on every PR and push to `main`.
 
 ## Running the checks locally
@@ -43,6 +44,7 @@ Open an issue describing the problem (a bad registry entry, a broken automation,
 ```bash
 node scripts/validate-registry.js
 node scripts/sync-versions.js   # dry-runs against the live GitHub API, only writes registry.json if something changed
+node --test scripts/*.test.js   # unit tests of the commit pinning logic
 ```
 
 No dependencies to install — both scripts use Node's built-in `fetch` (Node 18+).
