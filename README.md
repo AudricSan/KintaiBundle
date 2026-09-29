@@ -23,6 +23,10 @@ It's added by default on every Kintai instance and can't be removed from `/admin
                 "release": ["1.0.0"],
                 "beta": ["1.1.0", "1.0.0"],
                 "alpha": ["1.1.0", "1.0.0"]
+            },
+            "commits": {
+                "1.1.0": "0123456789abcdef0123456789abcdef01234567",
+                "1.0.0": "89abcdef0123456789abcdef0123456789abcdef"
             }
         }
     ]
@@ -32,6 +36,7 @@ It's added by default on every Kintai instance and can't be removed from `/admin
 - `schema_version` — Kintai currently understands `1` (legacy, `versions` as a flat array) and `2` (current); a Kintai instance that doesn't understand a newer schema rejects the listing cleanly instead of misreading it.
 - `repository_url` must be a GitHub repository (`https://github.com/{owner}/{repo}`) with tagged releases (`vX.Y.Z`) — Kintai downloads a specific version's zipball via the GitHub Releases API, never `git clone`/`pull`.
 - `versions` is keyed by update channel — `release` (only non-prerelease releases published from the `main` branch), `beta` (`main` or `beta`, excludes `alpha`), `alpha` (everything) — each a list of installable versions, newest first. This mirrors the update channel an Owner picks once for all their installed bundles on `/admin/bundles/market`; `sync-versions.js` (below) computes these three lists automatically from each bundle's actual GitHub Releases, never hand-edited.
+- `commits` pins, for every listed version, the commit its tag points to (40 lowercase hex characters). Kintai compares the zip it downloads to this commit **before** extracting it and refuses to install on a mismatch, so what gets installed is what was reviewed here, not whatever a tag points to at install time. It is filled in by `scripts/sync-versions.js` and is **never changed automatically**: if a pinned tag is later moved to another commit, the sync job fails loudly (no PR) instead of "fixing" the pin. A registry without `commits` still works — Kintai then installs without this check.
 - The bundle's own `bundle.json` (inside its repository, read at install time) is the actual source of truth for compatibility (`kintai_core.min`/`max`) and everything else — `versions` here is only a hint for the catalog UI.
 - Each bundle's own repository is authoritative for its code and manifest — this file only points to it.
 
@@ -58,6 +63,7 @@ Voir l'exemple ci-dessus (section anglaise) — le format est identique quelle q
 - `schema_version` — Kintai comprend actuellement `1` (historique, `versions` en liste plate) et `2` (actuel) ; une instance Kintai qui ne comprend pas un schéma plus récent rejette proprement le listing au lieu de le mal interpréter.
 - `repository_url` doit être un dépôt GitHub (`https://github.com/{owner}/{repo}`) avec des releases taguées (`vX.Y.Z`) — Kintai télécharge le zipball d'une version précise via l'API GitHub Releases, jamais `git clone`/`pull`.
 - `versions` est indexé par canal de mise à jour — `release` (uniquement les releases non-prerelease publiées depuis la branche `main`), `beta` (`main` ou `beta`, exclut `alpha`), `alpha` (tout) — chacun une liste de versions installables, la plus récente en premier. Ça reflète le canal de mise à jour choisi une seule fois pour tous les bundles installés d'un Owner sur `/admin/bundles/market` ; `sync-versions.js` (ci-dessous) calcule ces trois listes automatiquement à partir des vraies Releases GitHub de chaque bundle, jamais édité à la main.
+- `commits` épingle, pour chaque version listée, le commit vers lequel pointe son tag (40 caractères hexadécimaux en minuscules). Kintai compare le ZIP téléchargé à ce commit **avant** de l'extraire et refuse l'installation s'ils diffèrent : ce qui est installé est ce qui a été relu ici, et non ce vers quoi un tag pointe au moment de l'installation. Il est rempli par `scripts/sync-versions.js` et n'est **jamais modifié automatiquement** : si un tag épinglé est déplacé vers un autre commit, le job de synchronisation échoue bruyamment (sans PR) au lieu de « corriger » l'épinglage. Un registry sans `commits` fonctionne toujours — Kintai installe alors sans ce contrôle.
 - Le `bundle.json` propre au bundle (dans son dépôt, lu au moment de l'installation) reste la source de vérité réelle pour la compatibilité (`kintai_core.min`/`max`) et tout le reste — `versions` ici n'est qu'une indication pour l'UI du catalogue.
 - Le dépôt propre à chaque bundle fait autorité sur son code et son manifeste — ce fichier ne fait que pointer vers lui.
 

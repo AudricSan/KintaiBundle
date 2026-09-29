@@ -11,6 +11,14 @@
 //   - release : uniquement les releases publiées depuis `main`, non prerelease.
 //   - beta    : les releases publiées depuis `main` ou `beta` (exclut `alpha`).
 //   - alpha   : toutes les releases, canal le plus permissif.
+//
+// Épinglage des commits (champ `commits` de chaque bundle : { "1.1.4": "<sha du commit du tag>" }) :
+// Kintai compare le ZIP qu'il télécharge à ce commit avant de l'installer. Le registry devient ainsi le
+// point de confiance (ses changements passent par une PR relue), et non plus « ce vers quoi pointe un tag
+// au moment de l'installation » — un tag déplacé vers un commit piégé serait refusé.
+// Règle essentielle : une empreinte est posée UNE fois puis n'est JAMAIS modifiée automatiquement. Si un
+// tag déjà épinglé pointe désormais vers un autre commit, le script échoue bruyamment (job en erreur,
+// aucune PR) au lieu de « corriger » l'empreinte, ce qui annulerait toute la protection.
 
 const fs = require("fs");
 const path = require("path");
@@ -52,7 +60,7 @@ function matchesChannel(release, channel) {
   }
 }
 
-async function fetchReleases({ owner, repo }) {
+function githubHeaders() {
   const headers = {
     Accept: "application/vnd.github+json",
     "User-Agent": "KintaiBundle-sync-versions",
@@ -60,6 +68,93 @@ async function fetchReleases({ owner, repo }) {
   if (process.env.GITHUB_TOKEN) {
     headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
   }
+  return headers;
+}
+
+const COMMIT_RE = /^[0-9a-f]{40}$/;
+
+/**
+ * Commit vers lequel pointe chaque tag vX.Y.Z du dépôt, sous forme { "vX.Y.Z": "<sha 40 hex>" }.
+ * Un tag « léger » pointe directement sur un commit ; un tag « annoté » pointe sur un objet tag qu'il
+ * faut déréférencer pour atteindre le commit.
+ */
+async function fetchTagCommits({ owner, repo }) {
+  const headers = githubHeaders();
+  const refs = [];
+  for (let page = 1; ; page++) {
+    const res = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/git/matching-refs/tags/v?per_page=100&page=${page}`,
+      { headers }
+    );
+    if (res.status === 404) break;
+    if (!res.ok) {
+      throw new Error(`GitHub API error (tags) for ${owner}/${repo}: ${res.status} ${res.statusText}`);
+    }
+    const batch = await res.json();
+    refs.push(...batch);
+    if (batch.length < 100) break;
+  }
+
+  const commits = {};
+  for (const ref of refs) {
+    const tag = ref.ref.replace(/^refs\/tags\//, "");
+    if (!TAG_RE.test(tag)) continue;
+
+    let object = ref.object;
+    // Tag annoté : on suit la chaîne jusqu'au commit (quelques niveaux au plus en pratique).
+    for (let depth = 0; object.type === "tag" && depth < 3; depth++) {
+      const res = await fetch(
+        `https://api.github.com/repos/${owner}/${repo}/git/tags/${object.sha}`,
+        { headers }
+      );
+      if (!res.ok) {
+        throw new Error(`GitHub API error (annotated tag ${tag}) for ${owner}/${repo}: ${res.status} ${res.statusText}`);
+      }
+      object = (await res.json()).object;
+    }
+    if (object.type === "commit" && COMMIT_RE.test(object.sha)) {
+      commits[tag] = object.sha;
+    }
+  }
+  return commits;
+}
+
+/**
+ * Croise les releases avec le commit de leur tag et les empreintes déjà épinglées.
+ * @returns {{commits: Object<string,string>, conflicts: Array, unpinnable: string[], releases: Array}}
+ *   - commits : version -> sha à écrire (une empreinte existante est toujours conservée) ;
+ *   - conflicts : versions déjà épinglées dont le tag pointe maintenant ailleurs ;
+ *   - unpinnable : versions dont le tag est introuvable (jamais listées sans empreinte) ;
+ *   - releases : les releases qui restent listables.
+ */
+function pinCommits(releases, tagCommits, existing) {
+  const pinned = existing && typeof existing === "object" ? existing : {};
+  const commits = {};
+  const conflicts = [];
+  const unpinnable = [];
+  const listable = [];
+
+  for (const release of releases) {
+    const version = release.tag_name.slice(1);
+    const actual = tagCommits[release.tag_name];
+    const previous = pinned[version];
+
+    if (previous && actual && previous !== actual) {
+      conflicts.push({ version, pinned: previous, actual });
+      commits[version] = previous; // on ne touche jamais à une empreinte existante
+      listable.push(release);
+    } else if (previous || actual) {
+      commits[version] = previous || actual;
+      listable.push(release);
+    } else {
+      unpinnable.push(version);
+    }
+  }
+  return { commits, conflicts, unpinnable, releases: listable };
+}
+
+async function fetchReleases({ owner, repo }) {
+  const headers = githubHeaders();
 
   const releases = [];
   let page = 1;
@@ -107,9 +202,19 @@ function versionsByChannel(releases) {
   return result;
 }
 
+/** Empreintes triées par version décroissante, pour des diffs stables. */
+function sortedCommits(commits) {
+  const out = {};
+  for (const version of Object.keys(commits).sort((a, b) => compareSemverDesc(`v${a}`, `v${b}`))) {
+    out[version] = commits[version];
+  }
+  return out;
+}
+
 async function main() {
   const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, "utf8"));
   let changed = false;
+  const conflicts = [];
 
   for (const bundle of registry.bundles) {
     const repoInfo = parseRepo(bundle.repository_url);
@@ -128,15 +233,48 @@ async function main() {
       continue;
     }
 
-    const versions = versionsByChannel(releases);
+    let tagCommits;
+    try {
+      tagCommits = await fetchTagCommits(repoInfo);
+    } catch (err) {
+      console.error(`Skipping ${bundle.slug}: ${err.message}`);
+      continue;
+    }
 
-    const before = JSON.stringify(bundle.versions);
-    const after = JSON.stringify(versions);
+    const pinned = pinCommits(releases, tagCommits, bundle.commits);
+    for (const version of pinned.unpinnable) {
+      console.warn(
+        `Warning: ${bundle.slug} ${version} has a release but its tag cannot be resolved to a commit; not listed.`
+      );
+    }
+    for (const c of pinned.conflicts) {
+      conflicts.push({ slug: bundle.slug, ...c });
+    }
+
+    const versions = versionsByChannel(pinned.releases);
+    const commits = sortedCommits(pinned.commits);
+
+    const before = JSON.stringify([bundle.versions, bundle.commits]);
+    const after = JSON.stringify([versions, commits]);
     if (before !== after) {
-      console.log(`${bundle.slug}: ${before} -> ${after}`);
+      console.log(`${bundle.slug}: ${JSON.stringify(bundle.versions)} -> ${JSON.stringify(versions)}`);
       bundle.versions = versions;
+      bundle.commits = commits;
       changed = true;
     }
+  }
+
+  if (conflicts.length > 0) {
+    // Un tag épinglé a bougé : possible compromission d'un dépôt de bundle (ou re-tag légitime, à
+    // trancher à la main). On échoue AVANT d'écrire quoi que ce soit : pas de PR automatique.
+    for (const c of conflicts) {
+      console.error(
+        `::error::${c.slug} ${c.version}: le tag pointe maintenant vers ${c.actual} alors que le registry épingle ${c.pinned}. ` +
+          "Le tag a été déplacé : vérifier le dépôt du bundle avant toute modification de registry.json."
+      );
+    }
+    console.error(`${conflicts.length} tag(s) épinglé(s) ont changé de commit ; registry.json n'a pas été modifié.`);
+    process.exit(1);
   }
 
   if (changed) {
@@ -154,7 +292,11 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+module.exports = { pinCommits, sortedCommits, versionsByChannel, matchesChannel, fetchTagCommits };
+
+if (require.main === module) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
