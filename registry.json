@@ -4,54 +4,6 @@
     "updated_at": "2026-10-01T10:19:23Z",
     "bundles": [
         {
-            "slug": "feedback",
-            "name": "Retours utilisateurs",
-            "description": "Remontées des employés (bugs, suggestions) — modale de soumission, liste et suppression côté admin.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-feedback",
-            "versions": {
-                "release": [
-                    "1.1.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "1.1.7",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.0",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "1.1.9",
-                    "1.1.8",
-                    "1.1.7",
-                    "1.1.6",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.2",
-                    "1.1.1",
-                    "1.1.0",
-                    "1.0.1",
-                    "1.0.0"
-                ]
-            },
-            "commits": {
-                "1.1.9": "48f3c520e905f5ac966ce02c3d5117507388dd6b",
-                "1.1.8": "83372f2127a3588fed7e85e670b0af05d7f83d55",
-                "1.1.7": "3dafea654e22484ace836c0566802e46b0074a18",
-                "1.1.6": "9a0c3fed2337cf02bb81b5b432a5908dc055b07a",
-                "1.1.5": "9b4d7c0ebf4fb6c89844325bb9686dac75d45a8d",
-                "1.1.4": "30fec41b69c97bece8aa3ce301d4e00b264e0aae",
-                "1.1.3": "3f5a81e730fc324a37af8f8da6acf31d62927139",
-                "1.1.2": "c0cf48e29ba6722765b7e034df580e662a60e514",
-                "1.1.1": "3595f565b3b7417712f6cbb689ca7d32a8fde2ea",
-                "1.1.0": "6f95c18b82b6a03154b242f2980217187f66ad2c",
-                "1.0.1": "9cd526b70880a888fed7f745675f86f4e0dcfe73",
-                "1.0.0": "5cb1137689c44c467f27a10786deb1ecf87de659"
-            }
-        },
-        {
             "slug": "daily-report",
             "name": "Rapports journaliers",
             "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
