@@ -58,7 +58,7 @@
         {
             "slug": "team-directory",
             "name": "Annuaire des collègues",
-            "description": "Annuaire des collègues scopé aux magasins partagés, avec profil étendu consultable (bio, compétences, langues, loisirs).",
+            "description": "Profil enrichi (photo, bio, compétences, langues parlées, loisirs) et annuaire des collègues par store.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-team-directory",
             "versions": {
                 "release": [
@@ -92,7 +92,7 @@
         {
             "slug": "hiring-report",
             "name": "Rapport d'embauche",
-            "description": "Consultation et édition des rapports d'embauche par magasin. Générés automatiquement à la création d'un employé, même si ce bundle est désactivé.",
+            "description": "Consultation et édition des rapports d'embauche par magasin, générés automatiquement à la création d'un employé tant que le bundle est actif.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-hiring-report",
             "versions": {
                 "release": [
@@ -258,7 +258,7 @@
         {
             "slug": "shift-swap",
             "name": "Échanges de shifts",
-            "description": "Demandes d'échange de shifts entre employés, avec validation par un manager.",
+            "description": "Demandes d'échange de shifts entre employés : proposition, acceptation, application par un manager.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-swap",
             "versions": {
                 "release": [
@@ -306,7 +306,7 @@
         {
             "slug": "store-photos",
             "name": "Photos de magasin",
-            "description": "Envoi et consultation de photos par magasin (état des lieux, rapport visuel), avec rotation et nettoyage automatique.",
+            "description": "Envoi et suivi de photos hebdomadaires de l'espace de vente.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-store-photos",
             "versions": {
                 "release": [
@@ -340,7 +340,7 @@
         {
             "slug": "timeclock",
             "name": "Pointage",
-            "description": "Pointer/dépointer, historique employé, gestion admin des entrées de pointage.",
+            "description": "Pointer/dépointer côté employé, historique et gestion admin des entrées de pointage.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-timeclock",
             "versions": {
                 "release": [
@@ -374,7 +374,7 @@
         {
             "slug": "timeoff",
             "name": "Congés",
-            "description": "Créer, approuver et consulter des demandes de congés.",
+            "description": "Demandes d'absence des employés : soumission, approbation, suivi.",
             "repository_url": "https://github.com/AudricSan/kintai-bundle-timeoff",
             "versions": {
                 "release": [
