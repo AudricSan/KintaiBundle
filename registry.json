@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "name": "Registry officiel Kintai",
-    "updated_at": "2026-10-15T13:22:26Z",
+    "updated_at": "2026-10-17T18:55:11Z",
     "bundles": [
         {
             "slug": "daily-report",
@@ -500,6 +500,7 @@
                     "1.0.0"
                 ],
                 "alpha": [
+                    "1.2.3",
                     "1.2.2",
                     "1.2.1",
                     "1.1.7",
@@ -521,6 +522,7 @@
                 ]
             },
             "commits": {
+                "1.2.3": "d27f51dc08f179402970f71dd5e6d10358190c42",
                 "1.2.2": "333dadb47c0804fe7ab7be5fd210f9304ae64aa7",
                 "1.2.1": "3533b7d3dd7b86c3fdfb7d6ce41157c41bcc2081",
                 "1.1.7": "b74e201e0f8cc7634dad3da1c33403bfa93c65f6",
