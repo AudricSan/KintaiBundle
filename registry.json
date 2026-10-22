@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "name": "Registry officiel Kintai",
-    "updated_at": "2026-10-15T13:22:26Z",
+    "updated_at": "2026-10-22T09:31:24Z",
     "bundles": [
         {
             "slug": "daily-report",
@@ -572,6 +572,26 @@
                 "1.0.2": "7f99e084014e8258003a8b2a8fd4d8a188cfa5c3",
                 "1.0.1": "7f99e084014e8258003a8b2a8fd4d8a188cfa5c3",
                 "1.0.0": "7f99e084014e8258003a8b2a8fd4d8a188cfa5c3"
+            }
+        },
+        {
+            "slug": "planning-check",
+            "name": "Validation du planning de demain",
+            "description": "Avant midi, le manager confirme que les shifts du lendemain sont corrects ; validation, PDF au patron, escalade en cas de retard.",
+            "repository_url": "https://github.com/AudricSan/kintai-bundle-planning-check",
+            "versions": {
+                "release": [
+                    "1.0.0"
+                ],
+                "beta": [
+                    "1.0.0"
+                ],
+                "alpha": [
+                    "1.0.0"
+                ]
+            },
+            "commits": {
+                "1.0.0": "8a9c9eb2b577ee99e66ea87fab8455adcbb7bd1c"
             }
         }
     ]
