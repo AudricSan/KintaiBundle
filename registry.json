@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "name": "Registry officiel Kintai",
-    "updated_at": "2026-10-23T01:50:14Z",
+    "updated_at": "2026-10-23T02:32:07Z",
     "bundles": [
         {
             "slug": "daily-report",
@@ -10,10 +10,12 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.1.7",
                     "1.1.5",
                     "1.1.4",
@@ -22,6 +24,7 @@
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.2.2",
                     "1.2.1",
                     "1.1.11",
@@ -42,6 +45,7 @@
                 ]
             },
             "commits": {
+                "2.0.0": "bff59a6ca102dd54b66cce1d2480a4c1421cbf4e",
                 "1.2.2": "9ee6c07b8be92453710bc01b1282eff5aff65526",
                 "1.2.1": "e385168e703f5ae757962d3fd2940bb2227fe1a4",
                 "1.1.11": "b0555084a58ce22c81ae4aedd8878c5bb548178f",
@@ -68,14 +72,17 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-team-directory",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.1.2",
                     "1.0.1",
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.2.2",
                     "1.2.1",
                     "1.1.4",
@@ -88,6 +95,7 @@
                 ]
             },
             "commits": {
+                "2.0.0": "fa64b132afd5742bd999eb39a9fba9809d729040",
                 "1.2.2": "d66aa60c3cdf1c6d9eabd6b76330ac5b6fbf7c1d",
                 "1.2.1": "43a6991e71369ba11e52de93a28a72b30b7d7c0a",
                 "1.1.4": "9d93bf9d786136e822648e7c63c63d6dd0f65197",
@@ -106,14 +114,17 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-hiring-report",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.1.2",
                     "1.0.1",
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.2.2",
                     "1.2.1",
                     "1.1.5",
@@ -127,6 +138,7 @@
                 ]
             },
             "commits": {
+                "2.0.0": "c04a4ac30ce4ba809465f1bda0f76749f09731ec",
                 "1.2.2": "68764e3f8fb7200dfbc3fcc0c061e0f19735198d",
                 "1.2.1": "7f678a56f4feaea060adb5ac6b3b1eef62ac2189",
                 "1.1.5": "b9b397129982270a3a2602426029c1b377280493",
@@ -146,10 +158,12 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-messaging",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.1.6",
                     "1.1.4",
                     "1.1.3",
@@ -158,6 +172,7 @@
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.2.2",
                     "1.2.1",
                     "1.1.10",
@@ -177,6 +192,7 @@
                 ]
             },
             "commits": {
+                "2.0.0": "8dbf27039736fcb1743da4fde01ac5fca686c8b3",
                 "1.2.2": "eabfc7e26222f98147e08087f5fa03678c0161d0",
                 "1.2.1": "3716f6b56d62b2c80b60099746a088793754e270",
                 "1.1.10": "3d86f859186837b46f8025f6282bb0a4a16e7a9a",
@@ -202,14 +218,17 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-resignation-report",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.1.2",
                     "1.0.1",
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.2.2",
                     "1.2.1",
                     "1.1.5",
@@ -223,6 +242,7 @@
                 ]
             },
             "commits": {
+                "2.0.0": "dee84a5a87ee5236da4137aaa9e7c3bf5ee74942",
                 "1.2.2": "9881cc887b43d44a413a7afd6e4eab1c11e26526",
                 "1.2.1": "25fa614bf00560b49fa920f2f87dd760b1cdcc44",
                 "1.1.5": "0843a42a6216b2a284d743419cbae591fd30f184",
@@ -242,10 +262,12 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-claim",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.1.7",
                     "1.1.5",
                     "1.1.4",
@@ -254,6 +276,7 @@
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.2.2",
                     "1.2.1",
                     "1.1.9",
@@ -272,6 +295,7 @@
                 ]
             },
             "commits": {
+                "2.0.0": "b274a860062f33dea2cd8f1668ed17913c21c802",
                 "1.2.2": "e4978a842e1c164ffa3ad9629e20142bc9d15241",
                 "1.2.1": "40062567d584824a6fa08f0b86e2f9b5d5de6da7",
                 "1.1.9": "a691fcd84fafb1785c8548b32a2b970dbbd35661",
@@ -296,10 +320,12 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-swap",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.1.6",
                     "1.1.4",
                     "1.1.3",
@@ -308,6 +334,7 @@
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.2.2",
                     "1.2.1",
                     "1.1.10",
@@ -327,6 +354,7 @@
                 ]
             },
             "commits": {
+                "2.0.0": "fa43f2525ae5a48e57722174aff7722d27ce80af",
                 "1.2.2": "65ad0ba2e1044d94ff18a38b31c16acb8284fcdb",
                 "1.2.1": "a66e5d760e86b690529e0a087311748bd74026a9",
                 "1.1.10": "3d3bb37bf36915c8a662610e82f246808111619e",
@@ -352,14 +380,17 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-store-photos",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.1.2",
                     "1.0.2",
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.2.2",
                     "1.2.1",
                     "1.1.4",
@@ -372,6 +403,7 @@
                 ]
             },
             "commits": {
+                "2.0.0": "a576fb01ac6606bf4477c03fc56dc59de0915b55",
                 "1.2.2": "b7f86331896a79ac91c1f1c018fa3cadfae3b0fa",
                 "1.2.1": "7d3250283e48d6b9a1cae01ca0b08f09687981ec",
                 "1.1.4": "0c0688857e1ac359ab369b99f08c830f1fae3a62",
@@ -390,14 +422,17 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-timeclock",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.1.2",
                     "1.0.1",
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.2.2",
                     "1.2.1",
                     "1.1.6",
@@ -412,6 +447,7 @@
                 ]
             },
             "commits": {
+                "2.0.0": "3e5d1e2cdf8fdf4c521901e2f7a82308b70e2aa1",
                 "1.2.2": "6eafc706e4f626703656dfa666743041bef64d1f",
                 "1.2.1": "6f21a0c99c80292ce25b6b11a71a457237f18e84",
                 "1.1.6": "6dad30466d4ad0c0f891cb452d5d3e0df3ef19e9",
@@ -432,10 +468,12 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-timeoff",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.1.6",
                     "1.1.4",
                     "1.1.3",
@@ -444,6 +482,7 @@
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.2.2",
                     "1.2.1",
                     "1.1.10",
@@ -463,6 +502,7 @@
                 ]
             },
             "commits": {
+                "2.0.0": "1164897170d400ae633814879055743df0afd4e9",
                 "1.2.2": "f7aeb3ecb2e8fd6e737a2291643c6e3d0aa14fe8",
                 "1.2.1": "141e282b9703123b42ab3078ee7f60fb43fd49a5",
                 "1.1.10": "76b6557574e06eee387a3d945de97445c618dcbd",
@@ -488,10 +528,12 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-notebook",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.1.1",
                     "1.1.0",
                     "1.0.7",
@@ -500,6 +542,7 @@
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.2.3",
                     "1.2.2",
                     "1.2.1",
@@ -522,6 +565,7 @@
                 ]
             },
             "commits": {
+                "2.0.0": "5444d2874ebe0550c1837a687adc8dd6384c7c01",
                 "1.2.3": "d27f51dc08f179402970f71dd5e6d10358190c42",
                 "1.2.2": "333dadb47c0804fe7ab7be5fd210f9304ae64aa7",
                 "1.2.1": "3533b7d3dd7b86c3fdfb7d6ce41157c41bcc2081",
@@ -550,13 +594,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-salary-report",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.0.1",
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.2.2",
                     "1.2.1",
                     "1.0.4",
@@ -567,6 +614,7 @@
                 ]
             },
             "commits": {
+                "2.0.0": "dac9fc8432846846e617525b9070bc1ee05ad997",
                 "1.2.2": "1bc9994643d24cfc7861cbb7abc9a2c717548717",
                 "1.2.1": "d03842b33be407de4f7b3a80aa11f31f5b578826",
                 "1.0.4": "f1fe6fd27f4eac5f2b8c36e82dc093494048939d",
@@ -583,19 +631,23 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-planning-check",
             "versions": {
                 "release": [
+                    "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ]
             },
             "commits": {
+                "2.0.0": "6e70fc7ab0b413a6b6352622d2ac4ec93e227b32",
                 "1.1.0": "e1eddfa75b892a6d4914b2e8f8bf8bb8c349e28b",
                 "1.0.0": "8a9c9eb2b577ee99e66ea87fab8455adcbb7bd1c"
             }
