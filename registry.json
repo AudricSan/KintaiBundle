@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "name": "Registry officiel Kintai",
-    "updated_at": "2026-10-23T04:46:41Z",
+    "updated_at": "2026-10-23T07:54:23Z",
     "bundles": [
         {
             "slug": "daily-report",
@@ -10,11 +10,13 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
             "versions": {
                 "release": [
+                    "2.1.0",
                     "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.1.0",
                     "2.0.0",
                     "1.1.7",
                     "1.1.5",
@@ -24,6 +26,7 @@
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.1.0",
                     "2.0.0",
                     "1.2.2",
                     "1.2.1",
@@ -45,6 +48,7 @@
                 ]
             },
             "commits": {
+                "2.1.0": "8ae39256135b2c8b3f245673ee1adc9a72810b06",
                 "2.0.0": "bff59a6ca102dd54b66cce1d2480a4c1421cbf4e",
                 "1.2.2": "9ee6c07b8be92453710bc01b1282eff5aff65526",
                 "1.2.1": "e385168e703f5ae757962d3fd2940bb2227fe1a4",
@@ -631,18 +635,21 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-planning-check",
             "versions": {
                 "release": [
+                    "2.2.0",
                     "2.1.0",
                     "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.2.0",
                     "2.1.0",
                     "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.2.0",
                     "2.1.0",
                     "2.0.0",
                     "1.1.0",
@@ -650,6 +657,7 @@
                 ]
             },
             "commits": {
+                "2.2.0": "7d4d58a85cf98c0b7449e17291909c04ed1628f9",
                 "2.1.0": "6db335f6725ad5c6f550de2d05912ed5d35c5bff",
                 "2.0.0": "6e70fc7ab0b413a6b6352622d2ac4ec93e227b32",
                 "1.1.0": "e1eddfa75b892a6d4914b2e8f8bf8bb8c349e28b",
