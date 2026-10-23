@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "name": "Registry officiel Kintai",
-    "updated_at": "2026-10-23T02:32:07Z",
+    "updated_at": "2026-10-23T04:46:41Z",
     "bundles": [
         {
             "slug": "daily-report",
@@ -631,22 +631,26 @@
             "repository_url": "https://github.com/AudricSan/kintai-bundle-planning-check",
             "versions": {
                 "release": [
+                    "2.1.0",
                     "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "beta": [
+                    "2.1.0",
                     "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ],
                 "alpha": [
+                    "2.1.0",
                     "2.0.0",
                     "1.1.0",
                     "1.0.0"
                 ]
             },
             "commits": {
+                "2.1.0": "6db335f6725ad5c6f550de2d05912ed5d35c5bff",
                 "2.0.0": "6e70fc7ab0b413a6b6352622d2ac4ec93e227b32",
                 "1.1.0": "e1eddfa75b892a6d4914b2e8f8bf8bb8c349e28b",
                 "1.0.0": "8a9c9eb2b577ee99e66ea87fab8455adcbb7bd1c"
