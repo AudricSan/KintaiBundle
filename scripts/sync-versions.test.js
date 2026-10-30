@@ -140,3 +140,39 @@ test("fetchTagCommits : ignore un objet qui n'est pas un commit valide", () =>
     [["matching-refs", { body: [{ ref: "refs/tags/v1.0.0", object: { type: "commit", sha: "not-a-sha" } }] }]],
     async () => assert.deepEqual(await fetchTagCommits(repo), {})
   ));
+
+// --- Monorepo : un dossier bundles/<slug>/ d'un dépôt, tags <slug>-vX.Y.Z -------------------------
+
+const { parseRepo, versionsByChannel } = require("./sync-versions.js");
+
+test("parseRepo : un dossier du monorepo donne son préfixe de tag", () => {
+  assert.deepEqual(parseRepo("https://github.com/o/r/tree/main/bundles/shift-swap"), {
+    owner: "o",
+    repo: "r",
+    prefix: "shift-swap-",
+  });
+  assert.deepEqual(parseRepo("https://github.com/o/r"), { owner: "o", repo: "r", prefix: "" });
+});
+
+test("monorepo : seules les versions du préfixe du bundle sont épinglées", () => {
+  const out = pinCommits([release("shift-swap-v3.0.1")], { "shift-swap-v3.0.1": SHA_A }, undefined, "shift-swap-");
+
+  assert.deepEqual(out.commits, { "3.0.1": SHA_A });
+  assert.deepEqual(versionsByChannel(out.releases, "shift-swap-").release, ["3.0.1"]);
+});
+
+test("fetchTagCommits : le monorepo ne retient que les tags de son bundle", () =>
+  withFetch(
+    [
+      [
+        "matching-refs/tags/timeoff-v",
+        {
+          body: [
+            { ref: "refs/tags/timeoff-v3.0.0", object: { type: "commit", sha: SHA_A } },
+            { ref: "refs/tags/timeoff-viewer-v1.0.0", object: { type: "commit", sha: SHA_B } },
+          ],
+        },
+      ],
+    ],
+    async () => assert.deepEqual(await fetchTagCommits({ ...repo, prefix: "timeoff-" }), { "timeoff-v3.0.0": SHA_A })
+  ));

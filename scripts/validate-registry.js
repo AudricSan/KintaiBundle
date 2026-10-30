@@ -8,7 +8,8 @@ const path = require("path");
 const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
 const SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const SEMVER_RE = /^\d+\.\d+\.\d+$/;
-const REPO_URL_RE = /^https:\/\/github\.com\/[^/\s]+\/[^/\s]+$/;
+// Dépôt dédié, ou dossier d'un monorepo : https://github.com/{owner}/{repo}/tree/{branche}/bundles/{slug}.
+const REPO_URL_RE = /^https:\/\/github\.com\/[^/\s]+\/[^/\s]+(\/tree\/[^/\s]+\/bundles\/[a-z0-9]+(-[a-z0-9]+)*)?$/;
 const COMMIT_RE = /^[0-9a-f]{40}$/;
 const CHANNELS = ["release", "beta", "alpha"];
 
@@ -91,15 +92,12 @@ if (!Array.isArray(registry.bundles)) {
         fail(`${where}: versions has unexpected keys: ${extraKeys.join(", ")}`);
       }
 
-      let anyNonEmpty = false;
-      for (const channel of CHANNELS) {
+            for (const channel of CHANNELS) {
         const list = bundle.versions[channel];
         if (!Array.isArray(list)) {
           fail(`${where}: versions.${channel} must be an array`);
           continue;
         }
-        if (list.length > 0) anyNonEmpty = true;
-
         list.forEach((version, vIndex) => {
           if (typeof version !== "string" || !SEMVER_RE.test(version)) {
             fail(`${where}: versions.${channel}[${vIndex}] must be a plain X.Y.Z string (no "v" prefix), got ${JSON.stringify(version)}`);
@@ -121,9 +119,8 @@ if (!Array.isArray(registry.bundles)) {
         }
       }
 
-      if (!anyNonEmpty) {
-        fail(`${where}: versions must have at least one non-empty channel`);
-      }
+      // Un bundle sans release (nouveau, ou monorepo pas encore publié) est listé sans version : le
+      // job de synchronisation la renseigne dès que sa première release existe.
     }
 
     // Épinglage : chaque version listée porte le commit de son tag (Kintai compare le ZIP téléchargé

@@ -7,662 +7,157 @@
             "slug": "daily-report",
             "name": "Rapports journaliers",
             "description": "Rapports d'activité quotidienne, workflow brouillon → soumis → validé.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-daily-report",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/daily-report",
             "versions": {
-                "release": [
-                    "2.1.0",
-                    "2.0.0",
-                    "1.1.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.1.0",
-                    "2.0.0",
-                    "1.1.7",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.0",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.1.0",
-                    "2.0.0",
-                    "1.2.2",
-                    "1.2.1",
-                    "1.1.11",
-                    "1.1.10",
-                    "1.1.9",
-                    "1.1.8",
-                    "1.1.7",
-                    "1.1.6",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.2",
-                    "1.1.1",
-                    "1.1.0",
-                    "1.0.2",
-                    "1.0.1",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.1.0": "8ae39256135b2c8b3f245673ee1adc9a72810b06",
-                "2.0.0": "bff59a6ca102dd54b66cce1d2480a4c1421cbf4e",
-                "1.2.2": "9ee6c07b8be92453710bc01b1282eff5aff65526",
-                "1.2.1": "e385168e703f5ae757962d3fd2940bb2227fe1a4",
-                "1.1.11": "b0555084a58ce22c81ae4aedd8878c5bb548178f",
-                "1.1.10": "f2e9f92c8327600f31716666917806374c6cf1ca",
-                "1.1.9": "a17b44d0b8a618bdfec4a4980dd7860b2bb12cb9",
-                "1.1.8": "05a9e05326f477d597b4473bfa10de955f3a0ebc",
-                "1.1.7": "4af82a9b15790387a4539170b5423964ac2a5d83",
-                "1.1.6": "20d6a7fee7cde0af56553446ca88a8569707720d",
-                "1.1.5": "8a068ac7ad9d058574680d64cff8b0ad800792b1",
-                "1.1.4": "8ef04f840996b0d4b6a86b21df74e9d32353e349",
-                "1.1.3": "0b068e683e8eb921703a4f88c3c211ece1e3879a",
-                "1.1.2": "608ea8fb45f37eeaf9fccd25d21f11541806c339",
-                "1.1.1": "ae96d6181952fb7e8e5f0a8d6522d17b4a33e941",
-                "1.1.0": "29d6feaf3ecc7011bea7333fe88e820a0465b923",
-                "1.0.2": "d3a59032a4044180f6959710c28c563112a44f36",
-                "1.0.1": "7232f8764c004db40573346cdc880a38e305ca5c",
-                "1.0.0": "7232f8764c004db40573346cdc880a38e305ca5c"
-            }
+            "commits": {}
         },
         {
             "slug": "team-directory",
             "name": "Annuaire des collègues",
             "description": "Profil enrichi (photo, bio, compétences, langues parlées, loisirs) et annuaire des collègues par store.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-team-directory",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/team-directory",
             "versions": {
-                "release": [
-                    "2.0.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.0.0",
-                    "1.1.2",
-                    "1.0.1",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.0.0",
-                    "1.2.2",
-                    "1.2.1",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.2",
-                    "1.1.1",
-                    "1.0.2",
-                    "1.0.1",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.0.0": "fa64b132afd5742bd999eb39a9fba9809d729040",
-                "1.2.2": "d66aa60c3cdf1c6d9eabd6b76330ac5b6fbf7c1d",
-                "1.2.1": "43a6991e71369ba11e52de93a28a72b30b7d7c0a",
-                "1.1.4": "9d93bf9d786136e822648e7c63c63d6dd0f65197",
-                "1.1.3": "8d6164c7824ec99a4f4f83c14fcef1ce9fffd0c0",
-                "1.1.2": "c31e2d5f3d9c8b7dfc2f520ead89693b8bcd846b",
-                "1.1.1": "a09c542d75e2cdbaa40e61892faf227315b0d6b6",
-                "1.0.2": "ec99035f97ac7a0ba1521dfdc5789ff5338166ae",
-                "1.0.1": "ec99035f97ac7a0ba1521dfdc5789ff5338166ae",
-                "1.0.0": "ec99035f97ac7a0ba1521dfdc5789ff5338166ae"
-            }
+            "commits": {}
         },
         {
             "slug": "hiring-report",
             "name": "Rapport d'embauche",
             "description": "Consultation et édition des rapports d'embauche par magasin, générés automatiquement à la création d'un employé tant que le bundle est actif.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-hiring-report",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/hiring-report",
             "versions": {
-                "release": [
-                    "2.0.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.0.0",
-                    "1.1.2",
-                    "1.0.1",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.0.0",
-                    "1.2.2",
-                    "1.2.1",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.2",
-                    "1.1.1",
-                    "1.0.2",
-                    "1.0.1",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.0.0": "c04a4ac30ce4ba809465f1bda0f76749f09731ec",
-                "1.2.2": "68764e3f8fb7200dfbc3fcc0c061e0f19735198d",
-                "1.2.1": "7f678a56f4feaea060adb5ac6b3b1eef62ac2189",
-                "1.1.5": "b9b397129982270a3a2602426029c1b377280493",
-                "1.1.4": "f86369af80c5eee89c4cf21cf39f436ed93b926d",
-                "1.1.3": "3c6f2ef0b963dc0f701d4b6042ed0a63f81d8c91",
-                "1.1.2": "4f2942adf84fd1775b7201fcd037de66e7f2b992",
-                "1.1.1": "61d8930b378e915a5ee6cb027a391592ee965131",
-                "1.0.2": "e09c6fdf077435f91254b94350ea1dee82ac999d",
-                "1.0.1": "e09c6fdf077435f91254b94350ea1dee82ac999d",
-                "1.0.0": "e09c6fdf077435f91254b94350ea1dee82ac999d"
-            }
+            "commits": {}
         },
         {
             "slug": "messaging",
             "name": "Messagerie",
             "description": "Messagerie interne entre membres des magasins.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-messaging",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/messaging",
             "versions": {
-                "release": [
-                    "2.0.0",
-                    "1.1.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.0.0",
-                    "1.1.6",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.0",
-                    "1.0.2",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.0.0",
-                    "1.2.2",
-                    "1.2.1",
-                    "1.1.10",
-                    "1.1.9",
-                    "1.1.8",
-                    "1.1.7",
-                    "1.1.6",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.2",
-                    "1.1.1",
-                    "1.1.0",
-                    "1.0.2",
-                    "1.0.1",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.0.0": "8dbf27039736fcb1743da4fde01ac5fca686c8b3",
-                "1.2.2": "eabfc7e26222f98147e08087f5fa03678c0161d0",
-                "1.2.1": "3716f6b56d62b2c80b60099746a088793754e270",
-                "1.1.10": "3d86f859186837b46f8025f6282bb0a4a16e7a9a",
-                "1.1.9": "bdd94a49363b17113407b89a9dcddfb91dd88f20",
-                "1.1.8": "5b473d7b7f538054dbf1990acb67c2e7a6d616e2",
-                "1.1.7": "f9f867dd787a2284da2afe2c2732982715748545",
-                "1.1.6": "15fae541bdc7ec6c366926b4f4eb8887ab3992c2",
-                "1.1.5": "3765ab12346a5129bfe0a3db1e75aeb4476c3ef0",
-                "1.1.4": "91997e96a5cbe31c62b3deea26c0ec271b430087",
-                "1.1.3": "9dac2c1ed5e3d9fdbb4dae7bc51ecfee4615459b",
-                "1.1.2": "a64acf43bf6cd910816f1fc8d6e26adb9cc27b8e",
-                "1.1.1": "3e9a71b5bba641626d5439dcb8aa51eeb2e96e99",
-                "1.1.0": "701c9af70d7eccb3733c3db56567526a31ccbbf0",
-                "1.0.2": "37b1881301797284960ba4c336505171f2dc758d",
-                "1.0.1": "37b1881301797284960ba4c336505171f2dc758d",
-                "1.0.0": "37b1881301797284960ba4c336505171f2dc758d"
-            }
+            "commits": {}
         },
         {
             "slug": "resignation-report",
             "name": "Rapport de démission",
             "description": "Rapports de démission par employé, avec réactivation du compte.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-resignation-report",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/resignation-report",
             "versions": {
-                "release": [
-                    "2.0.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.0.0",
-                    "1.1.2",
-                    "1.0.1",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.0.0",
-                    "1.2.2",
-                    "1.2.1",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.2",
-                    "1.1.1",
-                    "1.0.2",
-                    "1.0.1",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.0.0": "dee84a5a87ee5236da4137aaa9e7c3bf5ee74942",
-                "1.2.2": "9881cc887b43d44a413a7afd6e4eab1c11e26526",
-                "1.2.1": "25fa614bf00560b49fa920f2f87dd760b1cdcc44",
-                "1.1.5": "0843a42a6216b2a284d743419cbae591fd30f184",
-                "1.1.4": "d40fd53bf8db60da7478e1024c4581b70c36916c",
-                "1.1.3": "83f5f4d1967b0cb6e42515593ce8a3d9c91674eb",
-                "1.1.2": "a0fc8f5d1fd0f86fd8aa278da508baa6314456a7",
-                "1.1.1": "e0f3a85cf372d2823e6367cbbe2ba2c06e47f59a",
-                "1.0.2": "e6b9fa0c5d95bd1e02d70ab960c1572951d98271",
-                "1.0.1": "e6b9fa0c5d95bd1e02d70ab960c1572951d98271",
-                "1.0.0": "e6b9fa0c5d95bd1e02d70ab960c1572951d98271"
-            }
+            "commits": {}
         },
         {
             "slug": "shift-claim",
             "name": "Bourse aux shifts",
             "description": "Publication de shifts ouverts, candidatures des employés, approbation par un manager.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-claim",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/shift-claim",
             "versions": {
-                "release": [
-                    "2.0.0",
-                    "1.1.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.0.0",
-                    "1.1.7",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.0",
-                    "1.0.2",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.0.0",
-                    "1.2.2",
-                    "1.2.1",
-                    "1.1.9",
-                    "1.1.8",
-                    "1.1.7",
-                    "1.1.6",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.2",
-                    "1.1.1",
-                    "1.1.0",
-                    "1.0.2",
-                    "1.0.1",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.0.0": "b274a860062f33dea2cd8f1668ed17913c21c802",
-                "1.2.2": "e4978a842e1c164ffa3ad9629e20142bc9d15241",
-                "1.2.1": "40062567d584824a6fa08f0b86e2f9b5d5de6da7",
-                "1.1.9": "a691fcd84fafb1785c8548b32a2b970dbbd35661",
-                "1.1.8": "649cec1e9022a95113dee0d83eea47ec4c7cf074",
-                "1.1.7": "a7b6b12e5f6b2377e5014b213bccdd2fa2bf9726",
-                "1.1.6": "14f0ee697d74fe34974b60c1d770932c0249479e",
-                "1.1.5": "91ba734acf5172c19faec9125b29cf20c0033fc0",
-                "1.1.4": "19785f47acfb95bb025a4d133cc5e8f4a44cc083",
-                "1.1.3": "3eb45356c8cd0b132e225e63d5509bda013c449e",
-                "1.1.2": "7e67554e0338d19177ca622b880e7935a1f1edfd",
-                "1.1.1": "9de25244c4e40ed0b6f1a09c4dee93de8040e580",
-                "1.1.0": "f52e6492719e45eedf7700c7a7ea45ec834d58de",
-                "1.0.2": "070204a09fa416249b42ef2797680806b692a078",
-                "1.0.1": "070204a09fa416249b42ef2797680806b692a078",
-                "1.0.0": "070204a09fa416249b42ef2797680806b692a078"
-            }
+            "commits": {}
         },
         {
             "slug": "shift-swap",
             "name": "Échanges de shifts",
             "description": "Demandes d'échange de shifts entre employés : proposition, acceptation, application par un manager.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-shift-swap",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/shift-swap",
             "versions": {
-                "release": [
-                    "2.0.0",
-                    "1.1.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.0.0",
-                    "1.1.6",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.0",
-                    "1.0.2",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.0.0",
-                    "1.2.2",
-                    "1.2.1",
-                    "1.1.10",
-                    "1.1.9",
-                    "1.1.8",
-                    "1.1.7",
-                    "1.1.6",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.2",
-                    "1.1.1",
-                    "1.1.0",
-                    "1.0.2",
-                    "1.0.1",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.0.0": "fa43f2525ae5a48e57722174aff7722d27ce80af",
-                "1.2.2": "65ad0ba2e1044d94ff18a38b31c16acb8284fcdb",
-                "1.2.1": "a66e5d760e86b690529e0a087311748bd74026a9",
-                "1.1.10": "3d3bb37bf36915c8a662610e82f246808111619e",
-                "1.1.9": "aa1d711760a96ff2831f2daa64fd37da04e6c4f3",
-                "1.1.8": "49de060bb2fec56950467bdc9602437f17cc303b",
-                "1.1.7": "3f24c996cc57ea28e9a908ed79cf8f4f3e60e5bd",
-                "1.1.6": "9426214f4ca1f631795a40479b80a1a9b1092595",
-                "1.1.5": "137ec1bc3fc5500b6ace247944445040b777b353",
-                "1.1.4": "6f031c7b3fe160cf5ed5ccf276dd041bb5ed8a08",
-                "1.1.3": "c2b568ffea49f46aeac28160a57fe2e8ef9ccb2c",
-                "1.1.2": "12ffe2910afa6567f6f99a227d03a1abd52bc153",
-                "1.1.1": "5ed42ae0d03b52e4296f7c6110b8efcf8d0e95c2",
-                "1.1.0": "b2d0b45048a38e93b559ba9c67bd0571e74604aa",
-                "1.0.2": "55e90ffc02198398df035dc57c978876f5cfe90c",
-                "1.0.1": "55e90ffc02198398df035dc57c978876f5cfe90c",
-                "1.0.0": "55e90ffc02198398df035dc57c978876f5cfe90c"
-            }
+            "commits": {}
         },
         {
             "slug": "store-photos",
             "name": "Photos de magasin",
             "description": "Envoi et suivi de photos hebdomadaires de l'espace de vente.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-store-photos",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/store-photos",
             "versions": {
-                "release": [
-                    "2.0.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.0.0",
-                    "1.1.2",
-                    "1.0.2",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.0.0",
-                    "1.2.2",
-                    "1.2.1",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.2",
-                    "1.1.1",
-                    "1.0.2",
-                    "1.0.1",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.0.0": "a576fb01ac6606bf4477c03fc56dc59de0915b55",
-                "1.2.2": "b7f86331896a79ac91c1f1c018fa3cadfae3b0fa",
-                "1.2.1": "7d3250283e48d6b9a1cae01ca0b08f09687981ec",
-                "1.1.4": "0c0688857e1ac359ab369b99f08c830f1fae3a62",
-                "1.1.3": "e5e0c131e9714f4727424135175cddf2c89823ea",
-                "1.1.2": "3650f66ce0651fed24468830a36c5947606ae3f8",
-                "1.1.1": "7bfd5ab598110111a0df7f8cdc4e8cf16091e2aa",
-                "1.0.2": "ebff6a357e3c5e3972ffd3d35abc3f1ed65ef9a9",
-                "1.0.1": "ebff6a357e3c5e3972ffd3d35abc3f1ed65ef9a9",
-                "1.0.0": "ebff6a357e3c5e3972ffd3d35abc3f1ed65ef9a9"
-            }
+            "commits": {}
         },
         {
             "slug": "timeclock",
             "name": "Pointage",
             "description": "Pointer/dépointer côté employé, historique et gestion admin des entrées de pointage.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-timeclock",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/timeclock",
             "versions": {
-                "release": [
-                    "2.0.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.0.0",
-                    "1.1.2",
-                    "1.0.1",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.0.0",
-                    "1.2.2",
-                    "1.2.1",
-                    "1.1.6",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.2",
-                    "1.1.1",
-                    "1.0.2",
-                    "1.0.1",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.0.0": "3e5d1e2cdf8fdf4c521901e2f7a82308b70e2aa1",
-                "1.2.2": "6eafc706e4f626703656dfa666743041bef64d1f",
-                "1.2.1": "6f21a0c99c80292ce25b6b11a71a457237f18e84",
-                "1.1.6": "6dad30466d4ad0c0f891cb452d5d3e0df3ef19e9",
-                "1.1.5": "4803d3e10b0ed385051d9dc33efa20189a8dbccc",
-                "1.1.4": "251191852e356f61bcb88c6a58678ac5211cc166",
-                "1.1.3": "d156dbf7ce1fe12931cc16c5f1f223ac162da470",
-                "1.1.2": "17bf3c0534534a4bcbcbd1a8c909c80d62e00314",
-                "1.1.1": "fb2a98eae4c23299a78fc6133bd020ab1c7c061e",
-                "1.0.2": "49f0c895c2bb603d866ce0af58b9a41fee59213d",
-                "1.0.1": "49f0c895c2bb603d866ce0af58b9a41fee59213d",
-                "1.0.0": "49f0c895c2bb603d866ce0af58b9a41fee59213d"
-            }
+            "commits": {}
         },
         {
             "slug": "timeoff",
             "name": "Congés",
             "description": "Demandes d'absence des employés : soumission, approbation, suivi.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-timeoff",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/timeoff",
             "versions": {
-                "release": [
-                    "2.0.0",
-                    "1.1.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.0.0",
-                    "1.1.6",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.0",
-                    "1.0.1",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.0.0",
-                    "1.2.2",
-                    "1.2.1",
-                    "1.1.10",
-                    "1.1.9",
-                    "1.1.8",
-                    "1.1.7",
-                    "1.1.6",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.2",
-                    "1.1.1",
-                    "1.1.0",
-                    "1.0.2",
-                    "1.0.1",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.0.0": "1164897170d400ae633814879055743df0afd4e9",
-                "1.2.2": "f7aeb3ecb2e8fd6e737a2291643c6e3d0aa14fe8",
-                "1.2.1": "141e282b9703123b42ab3078ee7f60fb43fd49a5",
-                "1.1.10": "76b6557574e06eee387a3d945de97445c618dcbd",
-                "1.1.9": "256a8fef54d4dc1279cd19932e8a72f426c26b84",
-                "1.1.8": "81beab6187dcabd3cb22325745f01f3f413128f0",
-                "1.1.7": "df27513634ea86f86c467848203ae2dd36086740",
-                "1.1.6": "99ae26d23b42a6d0f924b0ddef92389a51b3c6c8",
-                "1.1.5": "3478eac17925489c389c408e20ed11e072107033",
-                "1.1.4": "6ef91190ff4d085d102adc6799d8d36504ad0632",
-                "1.1.3": "413068cc61bd1d14e07ef55411c0e0f1a7d301d7",
-                "1.1.2": "dc9956b429180f55604614238a9c382dca464311",
-                "1.1.1": "b45150fd7fbb6b40677353ddab353283c7932444",
-                "1.1.0": "9eaf0491fe47a47866506d66c180dcfef322a8c9",
-                "1.0.2": "d9adff2a7d0edb07533f0e35bff95d8c2226bab5",
-                "1.0.1": "d9adff2a7d0edb07533f0e35bff95d8c2226bab5",
-                "1.0.0": "d9adff2a7d0edb07533f0e35bff95d8c2226bab5"
-            }
+            "commits": {}
         },
         {
             "slug": "notebook",
             "name": "Carnet de notes",
             "description": "Carnet de notes d'équipe — messages visibles sur les dashboards admin et employé, épinglage, expiration automatique.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-notebook",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/notebook",
             "versions": {
-                "release": [
-                    "2.0.0",
-                    "1.1.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.0.0",
-                    "1.1.1",
-                    "1.1.0",
-                    "1.0.7",
-                    "1.0.6",
-                    "1.0.3",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.0.0",
-                    "1.2.3",
-                    "1.2.2",
-                    "1.2.1",
-                    "1.1.7",
-                    "1.1.6",
-                    "1.1.5",
-                    "1.1.4",
-                    "1.1.3",
-                    "1.1.2",
-                    "1.1.1",
-                    "1.1.0",
-                    "1.0.7",
-                    "1.0.6",
-                    "1.0.5",
-                    "1.0.4",
-                    "1.0.3",
-                    "1.0.2",
-                    "1.0.1",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.0.0": "5444d2874ebe0550c1837a687adc8dd6384c7c01",
-                "1.2.3": "d27f51dc08f179402970f71dd5e6d10358190c42",
-                "1.2.2": "333dadb47c0804fe7ab7be5fd210f9304ae64aa7",
-                "1.2.1": "3533b7d3dd7b86c3fdfb7d6ce41157c41bcc2081",
-                "1.1.7": "b74e201e0f8cc7634dad3da1c33403bfa93c65f6",
-                "1.1.6": "f03762cb00c9b49e0fb1da36b8902c37dd0111c8",
-                "1.1.5": "263f4f2e57cbf9acef179bda8fd771af68c51672",
-                "1.1.4": "0bb5bbaa8daf0ce6e8eebdbd9885deaaa86d0d80",
-                "1.1.3": "a8cfe201afd1fea6e84e1db90d0c822b0e953fea",
-                "1.1.2": "75ec809a654f2d7f5cc83223cc3714d1ce2af498",
-                "1.1.1": "15aaae577c6712ca3bc83137d61f08df050f0b3b",
-                "1.1.0": "c87cc63c8e534d58b1e4a247685348a6d353162d",
-                "1.0.7": "228e344adc9c367860178e71368553bd4805cf19",
-                "1.0.6": "40489a4e08279ed3f4187dbedce701fb539a17f9",
-                "1.0.5": "728f4c24be8af593ea1af078d2b434a2949c36be",
-                "1.0.4": "38fe02b42c1a9874bfb7d22b2f4cb1a7eeb20ffe",
-                "1.0.3": "ff4745df18fdd52f540f3d162bcef4aaabf4d5b5",
-                "1.0.2": "78a134dfe48a118c6bf9e0a76c5963c12c5df8e5",
-                "1.0.1": "8b242d35a73c6de290509688348556190d33852c",
-                "1.0.0": "dcd7daf239af6b8ffcc55f210e9726dbdcd12ff7"
-            }
+            "commits": {}
         },
         {
             "slug": "salary-report",
             "name": "Rapport de salaire",
             "description": "Rapports de salaire mensuels par magasin ou par employé, pré-remplis depuis les rapports journaliers et les shifts.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-salary-report",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/salary-report",
             "versions": {
-                "release": [
-                    "2.0.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.0.0",
-                    "1.0.1",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.0.0",
-                    "1.2.2",
-                    "1.2.1",
-                    "1.0.4",
-                    "1.0.3",
-                    "1.0.2",
-                    "1.0.1",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.0.0": "dac9fc8432846846e617525b9070bc1ee05ad997",
-                "1.2.2": "1bc9994643d24cfc7861cbb7abc9a2c717548717",
-                "1.2.1": "d03842b33be407de4f7b3a80aa11f31f5b578826",
-                "1.0.4": "f1fe6fd27f4eac5f2b8c36e82dc093494048939d",
-                "1.0.3": "2055a64c07c13fb328748c799b3b9d1a9cead326",
-                "1.0.2": "7f99e084014e8258003a8b2a8fd4d8a188cfa5c3",
-                "1.0.1": "7f99e084014e8258003a8b2a8fd4d8a188cfa5c3",
-                "1.0.0": "7f99e084014e8258003a8b2a8fd4d8a188cfa5c3"
-            }
+            "commits": {}
         },
         {
             "slug": "planning-check",
             "name": "Validation du planning de demain",
             "description": "Avant midi, le manager confirme que les shifts du lendemain sont corrects ; validation, PDF au patron, escalade en cas de retard.",
-            "repository_url": "https://github.com/AudricSan/kintai-bundle-planning-check",
+            "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/planning-check",
             "versions": {
-                "release": [
-                    "2.2.0",
-                    "2.1.0",
-                    "2.0.0",
-                    "1.1.0",
-                    "1.0.0"
-                ],
-                "beta": [
-                    "2.2.0",
-                    "2.1.0",
-                    "2.0.0",
-                    "1.1.0",
-                    "1.0.0"
-                ],
-                "alpha": [
-                    "2.2.0",
-                    "2.1.0",
-                    "2.0.0",
-                    "1.1.0",
-                    "1.0.0"
-                ]
+                "release": [],
+                "beta": [],
+                "alpha": []
             },
-            "commits": {
-                "2.2.0": "7d4d58a85cf98c0b7449e17291909c04ed1628f9",
-                "2.1.0": "6db335f6725ad5c6f550de2d05912ed5d35c5bff",
-                "2.0.0": "6e70fc7ab0b413a6b6352622d2ac4ec93e227b32",
-                "1.1.0": "e1eddfa75b892a6d4914b2e8f8bf8bb8c349e28b",
-                "1.0.0": "8a9c9eb2b577ee99e66ea87fab8455adcbb7bd1c"
-            }
+            "commits": {}
         }
     ]
 }

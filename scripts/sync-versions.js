@@ -24,22 +24,42 @@ const fs = require("fs");
 const path = require("path");
 
 const REGISTRY_PATH = path.join(__dirname, "..", "registry.json");
-const TAG_RE = /^v(\d+)\.(\d+)\.(\d+)$/;
+const VERSION_TAIL_RE = /(\d+)\.(\d+)\.(\d+)$/;
 const CHANNELS = ["release", "beta", "alpha"];
 
+// Deux formes d'URL : un dépôt dédié au bundle (tags vX.Y.Z) ou un dossier du monorepo Kintai
+// (https://github.com/{owner}/{repo}/tree/{branche}/bundles/{slug}, tags {slug}-vX.Y.Z).
 function parseRepo(repositoryUrl) {
+  const mono = repositoryUrl.match(
+    /^https:\/\/github\.com\/([^/]+)\/([^/]+)\/tree\/[^/]+\/bundles\/([a-z0-9]+(?:-[a-z0-9]+)*)\/?$/
+  );
+  if (mono) {
+    return { owner: mono[1], repo: mono[2], prefix: `${mono[3]}-` };
+  }
   const match = repositoryUrl.match(
     /^https:\/\/github\.com\/([^/]+)\/([^/]+?)\/?$/
   );
   if (!match) {
     throw new Error(`repository_url is not a GitHub repo URL: ${repositoryUrl}`);
   }
-  return { owner: match[1], repo: match[2] };
+  return { owner: match[1], repo: match[2], prefix: "" };
+}
+
+const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+/** Expression d'un tag de version de ce bundle : vX.Y.Z, ou {slug}-vX.Y.Z dans le monorepo. */
+function tagPattern(prefix = "") {
+  return new RegExp(`^${escapeRegExp(prefix)}v(\\d+)\\.(\\d+)\\.(\\d+)$`);
+}
+
+/** Version « X.Y.Z » d'un tag (préfixe de bundle et « v » retirés). */
+function versionOf(tag, prefix = "") {
+  return tag.slice(prefix.length + 1);
 }
 
 function compareSemverDesc(a, b) {
-  const pa = a.match(TAG_RE);
-  const pb = b.match(TAG_RE);
+  const pa = a.match(VERSION_TAIL_RE);
+  const pb = b.match(VERSION_TAIL_RE);
   for (let i = 1; i <= 3; i++) {
     const diff = Number(pb[i]) - Number(pa[i]);
     if (diff !== 0) return diff;
@@ -78,12 +98,12 @@ const COMMIT_RE = /^[0-9a-f]{40}$/;
  * Un tag « léger » pointe directement sur un commit ; un tag « annoté » pointe sur un objet tag qu'il
  * faut déréférencer pour atteindre le commit.
  */
-async function fetchTagCommits({ owner, repo }) {
+async function fetchTagCommits({ owner, repo, prefix = "" }) {
   const headers = githubHeaders();
   const refs = [];
   for (let page = 1; ; page++) {
     const res = await fetch(
-      `https://api.github.com/repos/${owner}/${repo}/git/matching-refs/tags/v?per_page=100&page=${page}`,
+      `https://api.github.com/repos/${owner}/${repo}/git/matching-refs/tags/${prefix}v?per_page=100&page=${page}`,
       { headers }
     );
     if (res.status === 404) break;
@@ -98,7 +118,7 @@ async function fetchTagCommits({ owner, repo }) {
   const commits = {};
   for (const ref of refs) {
     const tag = ref.ref.replace(/^refs\/tags\//, "");
-    if (!TAG_RE.test(tag)) continue;
+    if (!tagPattern(prefix).test(tag)) continue;
 
     let object = ref.object;
     // Tag annoté : on suit la chaîne jusqu'au commit (quelques niveaux au plus en pratique).
@@ -127,7 +147,7 @@ async function fetchTagCommits({ owner, repo }) {
  *   - unpinnable : versions dont le tag est introuvable (jamais listées sans empreinte) ;
  *   - releases : les releases qui restent listables.
  */
-function pinCommits(releases, tagCommits, existing) {
+function pinCommits(releases, tagCommits, existing, prefix = "") {
   const pinned = existing && typeof existing === "object" ? existing : {};
   const commits = {};
   const conflicts = [];
@@ -135,7 +155,7 @@ function pinCommits(releases, tagCommits, existing) {
   const listable = [];
 
   for (const release of releases) {
-    const version = release.tag_name.slice(1);
+    const version = versionOf(release.tag_name, prefix);
     const actual = tagCommits[release.tag_name];
     const previous = pinned[version];
 
@@ -153,7 +173,7 @@ function pinCommits(releases, tagCommits, existing) {
   return { commits, conflicts, unpinnable, releases: listable };
 }
 
-async function fetchReleases({ owner, repo }) {
+async function fetchReleases({ owner, repo, prefix = "" }) {
   const headers = githubHeaders();
 
   const releases = [];
@@ -177,7 +197,7 @@ async function fetchReleases({ owner, repo }) {
 
     for (const release of page_releases) {
       if (release.draft) continue;
-      if (TAG_RE.test(release.tag_name)) {
+      if (tagPattern(prefix).test(release.tag_name)) {
         releases.push(release);
       }
     }
@@ -190,14 +210,14 @@ async function fetchReleases({ owner, repo }) {
 }
 
 /** @returns {{release: string[], beta: string[], alpha: string[]}} */
-function versionsByChannel(releases) {
+function versionsByChannel(releases, prefix = "") {
   const result = {};
   for (const channel of CHANNELS) {
     const tags = releases
       .filter((r) => matchesChannel(r, channel))
       .map((r) => r.tag_name);
     tags.sort(compareSemverDesc);
-    result[channel] = tags.map((t) => t.slice(1));
+    result[channel] = tags.map((t) => versionOf(t, prefix));
   }
   return result;
 }
@@ -205,7 +225,7 @@ function versionsByChannel(releases) {
 /** Empreintes triées par version décroissante, pour des diffs stables. */
 function sortedCommits(commits) {
   const out = {};
-  for (const version of Object.keys(commits).sort((a, b) => compareSemverDesc(`v${a}`, `v${b}`))) {
+  for (const version of Object.keys(commits).sort((a, b) => compareSemverDesc(a, b))) {
     out[version] = commits[version];
   }
   return out;
@@ -228,7 +248,7 @@ async function main() {
 
     if (releases.length === 0) {
       console.warn(
-        `Warning: ${bundle.slug} (${bundle.repository_url}) has no tagged vX.Y.Z releases; keeping existing versions.`
+        `Warning: ${bundle.slug} (${bundle.repository_url}) has no tagged ${repoInfo.prefix}vX.Y.Z releases; keeping existing versions.`
       );
       continue;
     }
@@ -241,7 +261,7 @@ async function main() {
       continue;
     }
 
-    const pinned = pinCommits(releases, tagCommits, bundle.commits);
+    const pinned = pinCommits(releases, tagCommits, bundle.commits, repoInfo.prefix);
     for (const version of pinned.unpinnable) {
       console.warn(
         `Warning: ${bundle.slug} ${version} has a release but its tag cannot be resolved to a commit; not listed.`
@@ -251,7 +271,7 @@ async function main() {
       conflicts.push({ slug: bundle.slug, ...c });
     }
 
-    const versions = versionsByChannel(pinned.releases);
+    const versions = versionsByChannel(pinned.releases, repoInfo.prefix);
     const commits = sortedCommits(pinned.commits);
 
     const before = JSON.stringify([bundle.versions, bundle.commits]);
@@ -292,7 +312,7 @@ async function main() {
   }
 }
 
-module.exports = { pinCommits, sortedCommits, versionsByChannel, matchesChannel, fetchTagCommits };
+module.exports = { parseRepo, pinCommits, sortedCommits, versionsByChannel, matchesChannel, fetchTagCommits };
 
 if (require.main === module) {
   main().catch((err) => {
