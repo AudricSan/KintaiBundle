@@ -1,7 +1,7 @@
 {
     "schema_version": 2,
     "name": "Registry officiel Kintai",
-    "updated_at": "2026-10-23T07:54:23Z",
+    "updated_at": "2026-11-01T22:29:55Z",
     "bundles": [
         {
             "slug": "daily-report",
@@ -10,10 +10,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/daily-report",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         },
         {
             "slug": "team-directory",
@@ -22,10 +28,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/team-directory",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         },
         {
             "slug": "hiring-report",
@@ -34,10 +46,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/hiring-report",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         },
         {
             "slug": "messaging",
@@ -46,10 +64,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/messaging",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         },
         {
             "slug": "resignation-report",
@@ -58,10 +82,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/resignation-report",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         },
         {
             "slug": "shift-claim",
@@ -70,10 +100,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/shift-claim",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         },
         {
             "slug": "shift-swap",
@@ -82,10 +118,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/shift-swap",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         },
         {
             "slug": "store-photos",
@@ -94,10 +136,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/store-photos",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         },
         {
             "slug": "timeclock",
@@ -106,10 +154,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/timeclock",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         },
         {
             "slug": "timeoff",
@@ -118,10 +172,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/timeoff",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         },
         {
             "slug": "notebook",
@@ -130,10 +190,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/notebook",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         },
         {
             "slug": "salary-report",
@@ -142,10 +208,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/salary-report",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         },
         {
             "slug": "planning-check",
@@ -154,10 +226,16 @@
             "repository_url": "https://github.com/AudricSan/kintai-laravel/tree/main/bundles/planning-check",
             "versions": {
                 "release": [],
-                "beta": [],
-                "alpha": []
+                "beta": [
+                    "3.0.0"
+                ],
+                "alpha": [
+                    "3.0.0"
+                ]
             },
-            "commits": {}
+            "commits": {
+                "3.0.0": "efb6ef93f1940baff1ac70a2c54416ff857db226"
+            }
         }
     ]
 }
